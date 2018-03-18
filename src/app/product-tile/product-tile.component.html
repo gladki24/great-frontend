@@ -1,0 +1,19 @@
+<div class="tile" (click)="toggleNav()" (dblclick)="showDetails()">
+  <figure class="tile-figure">
+    <img [src]="product.imgSource" [alt]="product.title">
+  </figure>
+  <div class="tile-title">
+    <div class="tile-title-text">{{ product.title | lowercase}}</div>
+    <nav [class]="cssClass" (click)="$event.stopPropagation();" (transitionend)="onTransition()">
+      <button class="tile-nav-btn">
+        <i class="fas fa-plus"></i>
+      </button>
+      <button class="tile-nav-btn" (click)="showDetails()">
+        <i class="fas fa-info-circle"></i>
+      </button>
+      <button class="tile-nav-btn">
+        <i class="fas fa-heart"></i>
+      </button>
+    </nav>
+  </div>
+</div>

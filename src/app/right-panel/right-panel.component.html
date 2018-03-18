@@ -1,0 +1,20 @@
+<div [class]="style">
+  <article *ngIf="productDetail" class="product-detail">
+    <figure class="product-figure">
+      <a [href]="productDetail.imgSource" target="_blank"><img class="product-image" [src]="productDetail.imgSource" alt="{{productDetail.title | lowercase }}"></a>
+    </figure>
+    <div class="product-detail-description">
+      <h2>{{productDetail.title | uppercase }}</h2>
+      <figure class="product-brand">
+        <a alt="brand" href="{{productDetail.link | hostname}}"><img [src]="productDetail.logoSource" [alt]="productDetail.brandName"></a>
+      </figure>
+      <ul>
+        <li class="product-price slash">Cena: {{productDetail.price | zlotyCurrency}}</li>
+        <li class="product-category slash">Kategoria: {{productDetail.categoryName}}</li>
+        <li class="product-link slash">
+          <a class="product-link" [href]="productDetail.link" target="_blank">Link do produktu</a>
+        </li>
+      </ul>
+    </div>
+  </article>
+</div>
