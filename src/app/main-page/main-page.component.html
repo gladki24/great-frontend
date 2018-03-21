@@ -1,0 +1,32 @@
+<article>
+  <section class="recommended">
+    <h1>Polecane: </h1>
+    <div class="carousel">
+      <div class="tile recommendation" *ngFor="let recomendation of recommended">{{recomendation.title}}</div>
+    </div>
+    <div class="carousel-nav">
+    </div>
+  </section>
+
+  <section class="brands">
+    <h1>Marki: </h1>
+    <div class="carousel">
+      <div class="tile brand" *ngFor="let brand of brands">{{brand.name}}</div>
+    </div>
+    <div class="carousel-nav">
+    </div>
+  </section>
+
+  <section class="categories">
+    <h1>Kategorie: </h1>
+    <div class="carousel">
+      <div class="tile category" *ngFor="let category of categories">{{category.name}}</div>
+    </div>
+    <div class="carousel-nav">
+    </div>
+  </section>
+
+  <section class="user">
+    <h1>Użytkownik: </h1>
+  </section>
+</article>
