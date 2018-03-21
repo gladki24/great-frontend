@@ -12,12 +12,17 @@ export class ProductTileComponent implements OnInit {
   public product: IProductTile;
   public cssClass: string;
   public navState: INavState;
+  public imgCSS: string;
   constructor(private showDetailService: ShowDetailsService) {
     this.navState = new NavHiddenState();
     this.cssClass = 'tile-nav-index tile-nav-hide tile-nav';
   }
 
   ngOnInit() {
+    this.imgCSS = 'loading';
+  }
+  onLoad(): void {
+    this.imgCSS = '';
   }
   onTransition(): void {
     this.navState.handle(this, false);

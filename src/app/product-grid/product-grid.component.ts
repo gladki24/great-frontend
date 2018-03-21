@@ -12,8 +12,9 @@ import {EBrand, ECategory} from '../EBrand_ECategory';
 })
 export class ProductGridComponent implements OnInit {
   @ViewChild('placeholder', {read: ViewContainerRef})private placeholder: ViewContainerRef;
-  private tileFactory: ComponentFactory<ProductTileComponent>;
   public products: IProductTile[];
+  public modal: string;
+  private tileFactory: ComponentFactory<ProductTileComponent>;
   private brand: EBrand;
   private category: ECategory;
 
@@ -22,8 +23,12 @@ export class ProductGridComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.modal = 'grid-modal';
     this.getParams();
     this.createView(72, this.brand, this.category);
+  }
+  public onLoad() {
+    this.modal = '';
   }
   private createTile(product: IProductTile) {
     this.tileFactory = this.resolver.resolveComponentFactory(ProductTileComponent);
@@ -44,6 +49,7 @@ export class ProductGridComponent implements OnInit {
       for (const product of products) {
         this.createTile(product);
       }
+      this.onLoad();
     }).catch(err => { console.error(err); });
   }
   private getParams(): void {

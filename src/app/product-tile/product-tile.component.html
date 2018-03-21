@@ -1,6 +1,6 @@
 <div class="tile" (click)="toggleNav()" (dblclick)="showDetails()">
   <figure class="tile-figure">
-    <img [src]="product.imgSource" [alt]="product.title">
+    <img [src]="product.imgSource" [alt]="product.title" [style]="imgCSS" (load)="onLoad()">
   </figure>
   <div class="tile-title">
     <div class="tile-title-text">{{ product.title | lowercase}}</div>

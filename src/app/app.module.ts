@@ -13,8 +13,8 @@ import { ShowDetailsService } from './show-details.service';
 import { ZlotyCurrencyPipe } from './zloty-currency.pipe';
 import { HostnamePipe } from './hostname.pipe';
 import { ProductTagsFormComponent } from './product-tags-form/product-tags-form.component';
-
-
+import { MainPageComponent } from './main-page/main-page.component';
+import {MainPageService} from './main-page.service';
 
 @NgModule({
   declarations: [
@@ -27,13 +27,14 @@ import { ProductTagsFormComponent } from './product-tags-form/product-tags-form.
     ZlotyCurrencyPipe,
     HostnamePipe,
     ProductTagsFormComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RoutingModule
   ],
-  providers: [ProductGridService, ShowDetailsService],
+  providers: [ProductGridService, ShowDetailsService, MainPageService],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

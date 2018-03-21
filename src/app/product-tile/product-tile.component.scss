@@ -25,6 +25,7 @@ $shadow-color-hover: #247baf;
   img {
     width: 100%;
     filter: grayscale(0.5);
+    pointer-events:none;
   }
 }
 
@@ -73,4 +74,10 @@ $shadow-color-hover: #247baf;
   .tile-nav-index {
     z-index: -1;
   }
+}
+
+.loading {
+  height: 270px;
+  width: 220px;
+  display: block;
 }
