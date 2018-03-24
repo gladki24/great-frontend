@@ -1,0 +1,53 @@
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  .carousel-inner {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 1s;
+    width: 800px;
+    height: 260px;
+    a {
+      text-decoration: none;
+    }
+    .tile {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      padding: 20px;
+      cursor: pointer;
+      background-color: #E9E9E9;
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: scale-down;
+        filter: grayscale(0.2);
+      }
+    }
+  }
+}
+
+.carousel-nav {
+  width: 100px;
+  padding: 20px;
+  margin: 0 auto 0 auto;
+  .carousel-btn {
+    width: 40px;
+    height: 30px;
+    background-color: white;
+    font-size: 22px;
+    line-height: 25px;
+    border: 2px solid #E9E9E9;
+    cursor: pointer;
+    &:hover {
+      color: white;
+      background-color: #70c1b3;
+    }
+    &:active {
+      background-color: darken(#70c1b3, 20%);
+    }
+  }
+}
