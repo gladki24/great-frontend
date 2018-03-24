@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import { LeftPanelComponent } from './left-panel/left-panel.component';
 import { RightPanelComponent } from './right-panel/right-panel.component';
-import {EPanel} from './IPanel';
+import {EPanel} from './Interfaces/IPanel';
 
 @Component({
   selector: 'app-root',

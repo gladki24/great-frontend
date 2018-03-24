@@ -7,6 +7,7 @@ import { MainPageComponent} from '../main-page/main-page.component';
 const Routes: Routes = [
   { path: '', component: MainPageComponent},
   { path: 'explore/brand/:brand/:number', component: ProductGridComponent },
+  { path: 'explore/category/:category/:number', component: ProductGridComponent },
   { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
   { path:  '**', redirectTo: 'explore/2'}
 ];

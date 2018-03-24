@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {IDetails} from './IDetails';
+import {IDetails} from '../Interfaces/IDetails';
 
 @Injectable()
 export class ShowDetailsService {

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { EPanel } from '../IPanel';
-import {ShowDetailsService} from '../show-details.service';
+import { EPanel } from '../Interfaces/IPanel';
+import {ShowDetailsService} from '../Services/show-details.service';
 
 @Component({
   selector: 'app-navigation',

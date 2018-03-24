@@ -1,12 +1,12 @@
 <article>
   <section class="brands">
     <h1>Marki: </h1>
-    <app-tile-carousel [tilesData]="brands" *ngIf="brands"></app-tile-carousel>
+    <app-tile-carousel [tilesData]="brands" *ngIf="brands" dataType="brand"></app-tile-carousel>
   </section>
 
   <section class="categories">
     <h1>Kategorie: </h1>
-    <app-tile-carousel [tilesData]="categories" *ngIf="categories"></app-tile-carousel>
+    <app-tile-carousel [tilesData]="categories" *ngIf="categories" dataType="category" ></app-tile-carousel>
   </section>
 
   <section class="user">

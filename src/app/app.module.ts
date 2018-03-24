@@ -7,14 +7,14 @@ import { LeftPanelComponent } from './left-panel/left-panel.component';
 import { RightPanelComponent } from './right-panel/right-panel.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { ProductTileComponent } from './product-tile/product-tile.component';
-import {ProductGridService} from './product-grid.service';
+import {ProductGridService} from './Services/product-grid.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ShowDetailsService } from './show-details.service';
-import { ZlotyCurrencyPipe } from './zloty-currency.pipe';
-import { HostnamePipe } from './hostname.pipe';
+import { ShowDetailsService } from './Services/show-details.service';
+import { ZlotyCurrencyPipe } from './Pipes/zloty-currency.pipe';
+import { HostnamePipe } from './Pipes/hostname.pipe';
 import { ProductTagsFormComponent } from './product-tags-form/product-tags-form.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import {MainPageService} from './main-page.service';
+import {MainPageService} from './Services/main-page.service';
 import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
 
 @NgModule({

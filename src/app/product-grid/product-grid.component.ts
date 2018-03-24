@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ProductGridService} from '../product-grid.service';
-import {IProductTile} from '../product-tile/IProductTile';
-import {EBrand, ECategory} from '../EBrand_ECategory';
+import {ProductGridService} from '../Services/product-grid.service';
+import {IProductTile} from '../Interfaces/IProductTile';
+import {EBrand, ECategory} from '../Enums/EBrand_ECategory';
 
 @Component({
   selector: 'app-product-grid',
@@ -14,6 +14,7 @@ export class ProductGridComponent implements OnInit {
   public modal: string;
   private brand: EBrand;
   private category: ECategory;
+  private productsNumber;
   @ViewChild('container', {read: ElementRef}) container: ElementRef;
 
   constructor(private service: ProductGridService,
@@ -35,9 +36,10 @@ export class ProductGridComponent implements OnInit {
   }
   private getParams(): void {
     this.route.params.subscribe(params => {
+      this.productsNumber = parseInt(params['number'], 0);
       this.brand = parseInt(params['brand'], 0);
       this.category = parseInt(params['category'], 0);
-      this.getProducts(27, this.brand, this.category);
+      this.getProducts(this.productsNumber, this.brand, this.category);
     });
   }
 }

@@ -1,6 +1,6 @@
 <div class="carousel">
   <div class="carousel-inner" [style.bottom]="position">
-    <a *ngFor="let tile of tilesData" routerLink="explore/brand/{{tile.id}}/27">
+    <a *ngFor="let tile of tilesData" routerLink="explore/{{dataType}}/{{tile.id}}/27">
       <div class="tile">
         <img [src]="tile.imgSource" [alt]="tile.name">
       </div>

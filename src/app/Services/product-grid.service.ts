@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {IProductTile} from './product-tile/IProductTile';
+import {IProductTile} from '../Interfaces/IProductTile';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {EBrand, ECategory} from './EBrand_ECategory';
+import {EBrand, ECategory} from '../Enums/EBrand_ECategory';
 
 @Injectable()
 export class ProductGridService {

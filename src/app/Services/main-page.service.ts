@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {ISmallTile} from './IDetails';
+import {ISmallTile} from '../Interfaces/IDetails';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

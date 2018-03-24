@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IProductTile} from './IProductTile';
+import {IProductTile} from '../Interfaces/IProductTile';
 import {INavState, NavHiddenState} from './TileState';
-import {ShowDetailsService} from '../show-details.service';
+import {ShowDetailsService} from '../Services/show-details.service';
 
 @Component({
   selector: 'app-product-tile',

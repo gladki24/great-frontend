@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ISmallTile} from '../IDetails';
+import {ISmallTile} from '../Interfaces/IDetails';
 
 @Component({
   selector: 'app-tile-carousel',
@@ -8,6 +8,7 @@ import {ISmallTile} from '../IDetails';
 })
 export class TileCarouselComponent implements OnInit {
   @Input() tilesData: ISmallTile[];
+  @Input() dataType: string;
   public rows: number;
   public activeRow: number;
   public position: string;
@@ -23,7 +24,7 @@ export class TileCarouselComponent implements OnInit {
     this.rows = Math.ceil(this.tilesData.length / 3);
   }
   public onBtnClick(slideDirection: boolean): void {
-    let currentPosition = parseInt(this.position);
+    let currentPosition = parseInt(this.position, 0);
     if (slideDirection) {
       if (this.activeRow < this.rows) {
         this.activeRow += 1;

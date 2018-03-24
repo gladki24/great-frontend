@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MainPageService} from '../main-page.service';
-import {ISmallTile} from '../IDetails';
+import {Component, OnInit} from '@angular/core';
+import {MainPageService} from '../Services/main-page.service';
+import {ISmallTile} from '../Interfaces/IDetails';
 
 @Component({
   selector: 'app-main-page',

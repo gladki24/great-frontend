@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPanel, EStatePanel } from '../IPanel';
+import { IPanel, EStatePanel } from '../Interfaces/IPanel';
 
 @Component({
   selector: 'app-left-panel',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IPanel, EStatePanel } from '../IPanel';
-import {ShowDetailsService} from '../show-details.service';
-import {IDetails} from '../IDetails';
+import { IPanel, EStatePanel } from '../Interfaces/IPanel';
+import {ShowDetailsService} from '../Services/show-details.service';
+import {IDetails} from '../Interfaces/IDetails';
 
 @Component({
   selector: 'app-right-panel',
