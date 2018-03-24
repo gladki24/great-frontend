@@ -8,7 +8,14 @@ import {EBrand, ECategory} from './EBrand_ECategory';
 export class ProductGridService {
   constructor(private http: HttpClient) { }
   getProducts(count: number, brand?: EBrand, category?: ECategory): Observable<IProductTile[]> {
-    const url = `http://${window.location.hostname}:3000/default/${count}/${brand}/${category}`;
+    let url: string;
+    if (brand && category) {
+      url = `http://${window.location.hostname}:3000/default/${count}/${brand}/${category}`;
+    } else if (brand) {
+      url = `http://${window.location.hostname}:3000/default/brand/${brand}/${count}`;
+    } else if (category) {
+      url = `http://${window.location.hostname}:3000/default/category/${category}/${count}`;
+    }
     return this.http.get<IProductTile[]>(url);
   }
 }

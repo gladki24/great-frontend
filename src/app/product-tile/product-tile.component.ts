@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IProductTile} from './IProductTile';
 import {INavState, NavHiddenState} from './TileState';
 import {ShowDetailsService} from '../show-details.service';
@@ -9,7 +9,7 @@ import {ShowDetailsService} from '../show-details.service';
   styleUrls: ['./product-tile.component.scss']
 })
 export class ProductTileComponent implements OnInit {
-  public product: IProductTile;
+  @Input() product: IProductTile;
   public cssClass: string;
   public navState: INavState;
   public imgCSS: string;

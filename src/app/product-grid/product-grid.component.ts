@@ -1,6 +1,5 @@
-import {Component, ComponentFactory, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductTileComponent } from '../product-tile/product-tile.component';
 import {ProductGridService} from '../product-grid.service';
 import {IProductTile} from '../product-tile/IProductTile';
 import {EBrand, ECategory} from '../EBrand_ECategory';
@@ -11,53 +10,34 @@ import {EBrand, ECategory} from '../EBrand_ECategory';
   styleUrls: ['./product-grid.component.scss']
 })
 export class ProductGridComponent implements OnInit {
-  @ViewChild('placeholder', {read: ViewContainerRef})private placeholder: ViewContainerRef;
   public products: IProductTile[];
   public modal: string;
-  private tileFactory: ComponentFactory<ProductTileComponent>;
   private brand: EBrand;
   private category: ECategory;
+  @ViewChild('container', {read: ElementRef}) container: ElementRef;
 
-  constructor(public resolver: ComponentFactoryResolver,
-              private service: ProductGridService,
-              private route: ActivatedRoute) {}
+  constructor(private service: ProductGridService,
+              private route: ActivatedRoute) {
+    this.modal = 'grid-modal';
+  }
 
   ngOnInit() {
-    this.modal = 'grid-modal';
     this.getParams();
-    this.createView(72, this.brand, this.category);
   }
   public onLoad() {
     this.modal = '';
   }
-  private createTile(product: IProductTile) {
-    this.tileFactory = this.resolver.resolveComponentFactory(ProductTileComponent);
-    const componentRef = this.placeholder.createComponent(this.tileFactory);
-    componentRef.instance.product = product;
-  }
-  private getProducts(count: number, brand?: EBrand, category?: ECategory): Promise<IProductTile[]> {
-    return new Promise((resolve, reject) => {
-      this.service.getProducts(count, brand, category).subscribe(products => {
-        if (products) { resolve(products); }
-        reject('no data');
-      });
-    });
-  }
-  private createView(count: number, brand?: EBrand, category?: ECategory): void {
-    this.getProducts(count, brand, category).then(products => {
+  private getProducts(count: number, brand?: EBrand, category?: ECategory) {
+    this.service.getProducts(count, brand, category).subscribe(products => {
       this.products = products;
-      for (const product of products) {
-        this.createTile(product);
-      }
       this.onLoad();
-    }).catch(err => { console.error(err); });
+    });
   }
   private getParams(): void {
     this.route.params.subscribe(params => {
       this.brand = parseInt(params['brand'], 0);
       this.category = parseInt(params['category'], 0);
-      this.placeholder.clear();
-      this.createView(72, this.brand, this.category);
+      this.getProducts(27, this.brand, this.category);
     });
   }
 }

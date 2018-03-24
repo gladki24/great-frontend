@@ -6,8 +6,9 @@ import { MainPageComponent} from '../main-page/main-page.component';
 
 const Routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'explore/:brand/:category', component: ProductGridComponent },
-  { path:  '**', redirectTo: 'explore/2/2'}
+  { path: 'explore/brand/:brand/:number', component: ProductGridComponent },
+  { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
+  { path:  '**', redirectTo: 'explore/2'}
 ];
 
 @NgModule({

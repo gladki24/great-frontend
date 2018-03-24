@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainPageService} from '../main-page.service';
-import {IBrand, ICategories, IRecommended} from '../IDetails';
+import {ISmallTile} from '../IDetails';
 
 @Component({
   selector: 'app-main-page',
@@ -8,29 +8,23 @@ import {IBrand, ICategories, IRecommended} from '../IDetails';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  public brands: IBrand[];
-  public categories: ICategories[];
-  public recommended: IRecommended[];
-  constructor(private service: MainPageService) { }
-
-  ngOnInit() {
+  public brands: ISmallTile[];
+  public categories: ISmallTile[];
+  constructor(private service: MainPageService) {
     this.getBrands();
     this.getCategories();
-    this.getRecommended();
   }
-  getBrands() {
+
+  ngOnInit() {
+  }
+  getBrands(): void {
     this.service.getBrands().subscribe(brands => {
       this.brands = brands;
     });
   }
-  getCategories() {
+  getCategories(): void {
     this.service.getCategories().subscribe(categories => {
       this.categories = categories;
-    });
-  }
-  getRecommended() {
-    this.service.getRecommended().subscribe(recommended => {
-      this.recommended = recommended;
     });
   }
 }

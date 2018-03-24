@@ -15,6 +15,7 @@ import { HostnamePipe } from './hostname.pipe';
 import { ProductTagsFormComponent } from './product-tags-form/product-tags-form.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import {MainPageService} from './main-page.service';
+import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MainPageService} from './main-page.service';
     HostnamePipe,
     ProductTagsFormComponent,
     MainPageComponent,
+    TileCarouselComponent,
   ],
   imports: [
     BrowserModule,
