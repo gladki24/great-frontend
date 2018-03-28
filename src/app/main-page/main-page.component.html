@@ -1,15 +1,16 @@
 <article>
-  <section class="brands">
+
+  <section class="brands" id="brands">
     <h1>Marki: </h1>
     <app-tile-carousel [tilesData]="brands" *ngIf="brands" dataType="brand"></app-tile-carousel>
   </section>
 
-  <section class="categories">
+  <section class="categories" id="categories">
     <h1>Kategorie: </h1>
     <app-tile-carousel [tilesData]="categories" *ngIf="categories" dataType="category" ></app-tile-carousel>
   </section>
 
-  <section class="user">
+  <section class="user" id="user">
     <h1>Użytkownik: </h1>
   </section>
 </article>

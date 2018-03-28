@@ -15,7 +15,7 @@ export class ShowDetailsService {
     this.id.next(id);
   }
   getDetails(id: string): Observable<IDetails[]> {
-    const url = `http://${window.location.hostname}:3000/default/detail/${id}`;
+    const url = `http://${window.location.hostname}:3000/detail/${id}`;
     return this.http.get<IDetails[]>(url);
   }
 }

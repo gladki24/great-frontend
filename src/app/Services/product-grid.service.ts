@@ -10,11 +10,11 @@ export class ProductGridService {
   getProducts(count: number, brand?: EBrand, category?: ECategory): Observable<IProductTile[]> {
     let url: string;
     if (brand && category) {
-      url = `http://${window.location.hostname}:3000/default/${count}/${brand}/${category}`;
+      url = `http://${window.location.hostname}:3000/product/${count}/${brand}/${category}`;
     } else if (brand) {
-      url = `http://${window.location.hostname}:3000/default/brand/${brand}/${count}`;
+      url = `http://${window.location.hostname}:3000/product/brand/${brand}/${count}`;
     } else if (category) {
-      url = `http://${window.location.hostname}:3000/default/category/${category}/${count}`;
+      url = `http://${window.location.hostname}:3000/product/category/${category}/${count}`;
     }
     return this.http.get<IProductTile[]>(url);
   }

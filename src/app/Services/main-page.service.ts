@@ -8,11 +8,11 @@ export class MainPageService {
 
   constructor(private http: HttpClient) { }
   getBrands(): Observable<ISmallTile[]> {
-    const url = `http://${window.location.hostname}:3000/default/brands`;
+    const url = `http://${window.location.hostname}:3000/tile/brands`;
     return this.http.get<ISmallTile[]>(url);
   }
   getCategories(): Observable<ISmallTile[]> {
-    const url = `http://${window.location.hostname}:3000/default/categories`;
+    const url = `http://${window.location.hostname}:3000/tile/categories`;
     return this.http.get<ISmallTile[]>(url);
   }
 }

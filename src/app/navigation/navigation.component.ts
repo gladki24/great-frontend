@@ -11,9 +11,11 @@ export class NavigationComponent implements OnInit {
   @Output() onLeftPanelClick = new EventEmitter<EPanel>();
   @Output() onRightPanelClick = new EventEmitter<EPanel>();
   public navigationStyle = 'navigation';
+  public btnDisabled = true;
   constructor(private showDetailsService: ShowDetailsService) {
     showDetailsService.id$.subscribe(() => {
       this.toggleRightPanel();
+      this.btnDisabled = false;
     });
   }
   ngOnInit() {

@@ -16,6 +16,9 @@ import { ProductTagsFormComponent } from './product-tags-form/product-tags-form.
 import { MainPageComponent } from './main-page/main-page.component';
 import {MainPageService} from './Services/main-page.service';
 import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
     ProductTagsFormComponent,
     MainPageComponent,
     TileCarouselComponent,
+    UserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule
   ],
   providers: [ProductGridService, ShowDetailsService, MainPageService],
   bootstrap: [AppComponent],
