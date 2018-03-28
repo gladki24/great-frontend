@@ -1,0 +1,6 @@
+<div class="dialog-box" (click)="hideDialog()" [class]="style" *ngIf="message">
+  <ul>
+    <li *ngFor="let line of message">{{line}}</li>
+  </ul>
+  <i class="fas fa-times"></i>
+</div>

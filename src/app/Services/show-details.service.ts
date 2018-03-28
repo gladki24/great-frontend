@@ -10,7 +10,7 @@ export class ShowDetailsService {
   private id = new Subject<string>();
   // streams
   public id$ = this.id.asObservable();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   onShowDetails(id: string) {
     this.id.next(id);
   }

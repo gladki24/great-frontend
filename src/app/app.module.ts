@@ -19,6 +19,8 @@ import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
+import { DialogComponent } from './dialog/dialog.component';
+import {DialogService} from './Services/dialog.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import {FormsModule} from '@angular/forms';
     TileCarouselComponent,
     UserComponent,
     LoginComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import {FormsModule} from '@angular/forms';
     RoutingModule,
     FormsModule
   ],
-  providers: [ProductGridService, ShowDetailsService, MainPageService],
+  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

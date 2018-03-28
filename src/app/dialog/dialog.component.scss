@@ -1,0 +1,25 @@
+div {
+  width: 100%;
+  background-color: #ff625f;
+  color: #c3261f;
+  font-size: 18px;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  border-top: 2px solid #c3261f;
+  text-align: center;
+  font-family: Roboto;
+  cursor: pointer;
+}
+
+i {
+  padding-left: 20px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

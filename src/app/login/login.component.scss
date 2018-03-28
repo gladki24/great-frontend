@@ -1,9 +1,18 @@
 .login {
+  display: flex;
+  justify-content: space-around;
   margin: 100px 0px 100px 0px;
   background-color: white;
-  padding: 50px;
-  box-shadow: 0 0 2px 0 #484848;
+  // box-shadow: 0 0 2px 0 #484848;
   font-family: 'Caveat', 'cursive';
+  padding: 20px 0 20px 0;
+}
+
+.form-box {
+  width: 50%;
+  &:first-child {
+    border-right: 2px solid #E9E9E9;
+  }
 }
 
 h1 {
@@ -35,13 +44,3 @@ table {
   }
 }
 
-.errors {
-  margin: 10px auto 0 auto;
-  padding: 10px 0 10px 0;
-  width: 50%;
-  font-family: 'Caveat', 'cursive';
-  background-color: #ff625f;
-  border: 2px solid #c3261f;
-  color: #c3261f;
-  font-size: 20px;
-}
