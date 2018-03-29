@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { DialogComponent } from './dialog/dialog.component';
 import {DialogService} from './Services/dialog.service';
+import {AuthService} from './Services/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import {DialogService} from './Services/dialog.service';
     RoutingModule,
     FormsModule
   ],
-  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService],
+  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService, AuthService],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

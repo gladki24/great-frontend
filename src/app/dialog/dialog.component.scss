@@ -1,12 +1,9 @@
 div {
   width: 100%;
-  background-color: #ff625f;
-  color: #c3261f;
   font-size: 18px;
   position: fixed;
   bottom: 0;
   padding: 10px;
-  border-top: 2px solid #c3261f;
   text-align: center;
   font-family: Roboto;
   cursor: pointer;
@@ -18,6 +15,24 @@ i {
 
 .show {
   display: block;
+}
+
+.error {
+  background-color: #ff625f;
+  color: #c3261f;
+  border-top: 2px solid #c3261f;
+}
+
+.warning {
+  background-color: #ffe066;
+  color: #ffc300;
+  border-top: 2px solid #ffe066;
+}
+
+.information {
+  background-color: #247baf;
+  color: white;
+  border-top: 2px solid #0e42af;
 }
 
 .hidden {

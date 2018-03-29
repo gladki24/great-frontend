@@ -1,6 +1,6 @@
 <div class="login">
   <div class="form-box">
-    <h1>Rejestracja</h1>
+    <h1><i class="fas fa-user-plus"></i>Rejestracja</h1>
     <form #registryForm="ngForm" (ngSubmit)="onRegister(registryForm)">
       <table>
         <tr>
@@ -60,7 +60,7 @@
             <label for="terms">Akceptuję regulamin: </label>
           </td>
           <td>
-            <input type="checkbox" name="terms" id="terms" ngModel>
+            <input type="checkbox" name="terms" id="terms" required>
           </td>
         </tr>
         <tr>
@@ -73,7 +73,7 @@
   </div>
 
   <div class="form-box">
-    <h1>Logowanie</h1>
+    <h1><i class="fas fa-sign-in-alt"></i>Logowanie</h1>
     <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
       <table>
         <tr>

@@ -11,7 +11,13 @@ export class DialogComponent implements OnInit {
   message: Array<string>;
   constructor(private service: DialogService) {
     this.service.message$.subscribe(message => {
-      this.message = message;
+      if (typeof message !== 'string') {
+        this.message = message;
+      } else {
+        const messages: Array<string> = [];
+        messages.push(message);
+        this.message = messages;
+      }
     });
     this.service.style$.subscribe(style => {
       this.style = style;
