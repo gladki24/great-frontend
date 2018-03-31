@@ -18,10 +18,12 @@ import {MainPageService} from './Services/main-page.service';
 import { TileCarouselComponent } from './tile-carousel/tile-carousel.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog/dialog.component';
 import {DialogService} from './Services/dialog.service';
 import {AuthService} from './Services/auth.service';
+import {UserService} from './Services/user.service';
+import {AuthGuard} from './Guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -44,9 +46,10 @@ import {AuthService} from './Services/auth.service';
     BrowserModule,
     HttpClientModule,
     RoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService, AuthService],
+  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService, AuthService, UserService, AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

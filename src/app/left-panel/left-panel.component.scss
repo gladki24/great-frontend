@@ -54,3 +54,12 @@ nav {
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .left-panel {
+    width: 100%;
+  }
+  .hidden-left-panel {
+    left: -100%;
+  }
+}

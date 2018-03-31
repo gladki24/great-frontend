@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user/user';
-import {NgForm} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DialogService} from '../Services/dialog.service';
 import {AuthService} from '../Services/auth.service';
+import {ILogin, IRegister} from '../Interfaces/ILogin_IRegsiter';
+import {Router} from '@angular/router';
 import {EDialogType} from '../Enums/EDialogType';
+import {UserService} from '../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,32 +13,60 @@ import {EDialogType} from '../Enums/EDialogType';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public model: User;
-  constructor(private dialog: DialogService, private auth: AuthService) {
+  public registerForm: FormGroup;
+  public loginForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialog: DialogService,
+    private router: Router,
+    private auth: AuthService,
+    private user: UserService) {
+    this.registerForm = formBuilder.group({
+      'nick': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(15)])],
+      'email': [null, Validators.compose([
+        Validators.required,
+        Validators.email,
+      ])],
+      'password': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ])],
+      'birth': '',
+      'terms': [null, Validators.requiredTrue]
+    });
+    this.loginForm = formBuilder.group({
+      'email': [null, Validators.compose([
+        Validators.required,
+        Validators.email
+      ])],
+      'password': [null, Validators.required]
+    });
   }
 
   ngOnInit() {
   }
-  onRegister(form: NgForm): void {
-    this.validateForms(form);
-    if (this.validateForms(form)) {
-      this.model = form.value;
-      this.auth.signUp(this.model);
-    }
+  signUp(form: IRegister): void {
+    this.auth.signUp(form).subscribe(res => {
+      this.dialog.showDialog('Użytkownik dodany!', EDialogType.Information);
+    }, err => {
+      this.dialog.showDialog('Użytkownik już istnieje', EDialogType.Error);
+    });
   }
-  onLogin(form: NgForm): void {
-    if (this.validateForms(form)) {
-    }
-  }
-  validateForms(data: NgForm): boolean {
-    const message = [];
-    if (data.value.email.indexOf('@') === -1) {
-      message.push('Niepoprawny adres e-mail!');
-    }
-    if (message.length > 0) {
-      this.dialog.showDialog(message, EDialogType.Error);
-      return false;
-    }
-    return true;
+  signIn(form: ILogin): void {
+    this.auth.signIn(form).subscribe(res => {
+      if (res.length === 1 ) {
+        this.dialog.showDialog('Zalogowano!', EDialogType.Information);
+        this.user.setUserLogged(res);
+        this.router.navigate(['/user']);
+      } else {
+        this.dialog.showDialog('Użytkownik nie istnieje', EDialogType.Error);
+      }
+    }, err => {
+      this.dialog.showDialog('Błąd serwera', EDialogType.Error);
+    });
   }
 }

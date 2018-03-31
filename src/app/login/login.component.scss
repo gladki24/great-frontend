@@ -12,9 +12,22 @@
 .form-box {
   width: 50%;
   box-sizing: border-box;
+  min-width: 400px;
   &:first-child {
     border-right: 2px solid #E9E9E9;
   }
+}
+
+.input-group {
+  padding: 5px 10px 5px 10px;
+  margin: 0 20px 0 20px;
+}
+
+.error {
+  background-color: #ff625f;
+  color: #c3261f;
+  margin: 20px;
+  padding: 10px;
 }
 
 h1 {
@@ -26,28 +39,18 @@ h1 {
   }
 }
 
-table {
-  margin: 0 auto 0 auto;
+legend {
+  font-size: 18px;
 }
 
-label {
-  padding-right: 10px;
-  font-size: 22px;
+fieldset {
+  border: 1px solid #247baf;
 }
 
 button, input {
+  font-family: Calibri;
+  font-size: 18px;
   width: 100%;
-  font-family: 'Caveat', 'cursive';
-  font-size: 20px;
-}
-
-table {
-  .ng-invalid {
-    border-right: 3px solid #f25f5c;
-  }
-
-  .ng-valid {
-    border-right: 3px solid #70c1b3;
-  }
+  border: none;
 }
 

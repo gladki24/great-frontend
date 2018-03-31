@@ -5,13 +5,15 @@ import { ProductGridComponent } from '../product-grid/product-grid.component';
 import { MainPageComponent} from '../main-page/main-page.component';
 import {UserComponent} from '../user/user.component';
 import {LoginComponent} from '../login/login.component';
+import {AuthGuard} from '../Guards/auth.guard';
 
 const Routes: Routes = [
   { path: '', component: MainPageComponent},
   { path: 'explore/brand/:brand/:number', component: ProductGridComponent },
   { path: 'explore/category/:category/:number', component: ProductGridComponent },
   { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
-  { path: 'user', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'user', canActivate: [AuthGuard], component: UserComponent},
   { path:  '**', redirectTo: 'explore/2'}
 ];
 
