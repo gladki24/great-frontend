@@ -55,6 +55,15 @@ nav {
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .left-panel {
+    width: 70%;
+  }
+  .hidden-left-panel {
+    left: -70%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .left-panel {
     width: 100%;

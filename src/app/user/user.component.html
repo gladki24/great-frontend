@@ -1,3 +1,47 @@
 <div class="dashboard">
   <h1>Panel Użytkownika</h1>
+  <div class="flex">
+    <section class="user-details panel">
+      <h2>Dane użytkownika: </h2>
+      <table>
+        <tr>
+          <td>Nazwa: </td>
+          <td>{{userDetails.nick}}</td>
+        </tr>
+        <tr>
+          <td>Imię: </td>
+          <td>{{userDetails.name}}</td>
+        </tr>
+        <tr>
+          <td>Nazwisko: </td>
+          <td>{{userDetails.surname}}</td>
+        </tr>
+        <tr>
+          <td>E-mail: </td>
+          <td>{{userDetails.email}}</td>
+        </tr>
+        <tr>
+          <td>Data urodzin: </td>
+          <td>{{userDetails.birthDate}}</td>
+        </tr>
+        <tr>
+          <td>Opis: </td>
+          <td>{{userDetails.desription}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <a routerLink="user/settings" class="button">Edytuj</a>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section class="user-collections panel">
+      <h2>Lista kolekcji: </h2>
+      <ul *ngIf="collections">
+        <li *ngFor="let collection of collections">
+          <a routerLink="/collection/{{collection.id}}">{{collection.title}}</a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </div>

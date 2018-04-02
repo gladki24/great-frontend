@@ -24,6 +24,7 @@ import {DialogService} from './Services/dialog.service';
 import {AuthService} from './Services/auth.service';
 import {UserService} from './Services/user.service';
 import {AuthGuard} from './Guards/auth.guard';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {AuthGuard} from './Guards/auth.guard';
     UserComponent,
     LoginComponent,
     DialogComponent,
+    CollectionComponent,
   ],
   imports: [
     BrowserModule,

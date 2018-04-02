@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import {User} from '../user/user';
+import {Observable} from 'rxjs/Observable';
+import {HttpClient} from '@angular/common/http';
+import { ICollectionName } from '../Interfaces/ICollectionName';
 
 @Injectable()
 export class UserService {
   private isUserLogged: boolean;
   private userData: User;
-  constructor() {
+  constructor(private http: HttpClient) {
     this.isUserLogged = false;
   }
   public setUserLogged(data: User[]) {
@@ -15,5 +18,11 @@ export class UserService {
   public getUserLogged() {
     return this.isUserLogged;
   }
-
+  public getPublicUserData(): User {
+    return this.userData;
+  }
+  public getCollections(id: string): Observable<ICollectionName[]> {
+    const url = `http://${window.location.hostname}:3000/user/collection/${id}`;
+    return this.http.get<ICollectionName[]>(url);
+  }
 }
