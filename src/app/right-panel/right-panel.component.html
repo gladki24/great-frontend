@@ -1,4 +1,4 @@
-<div [class]="style">
+<aside [class]="style">
   <article *ngIf="productDetail" class="product-detail">
     <figure class="product-figure">
       <a [href]="productDetail.imgSource" target="_blank"><img class="product-image" [src]="productDetail.imgSource" alt="{{productDetail.title | lowercase }}"></a>
@@ -17,4 +17,4 @@
       </ul>
     </div>
   </article>
-</div>
+</aside>
