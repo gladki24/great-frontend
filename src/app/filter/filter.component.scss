@@ -1,0 +1,35 @@
+.filter {
+  width: 760px;
+  font-family: "Josefin Sans";
+  margin: 100px auto 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+
+table {
+  text-align: center;
+}
+
+form {
+  align-items: center;
+}
+
+input, select {
+  width: 100%;
+  font-size: 18px;
+  font-family: "Josefin Sans";
+}
+
+input[type="submit"] {
+  height: 100%;
+  width: 100%;
+  background-color: #ffe066;
+  width: 50px;
+  border: 1px solid white;
+  &:hover {
+    background-color: #ffe61b;
+  }
+  &:active {
+    background-color: #ffa51c;
+  }
+}

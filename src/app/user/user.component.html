@@ -3,37 +3,42 @@
   <div class="flex">
     <section class="user-details panel">
       <h2>Dane użytkownika: </h2>
-      <table>
-        <tr>
-          <td>Nazwa: </td>
-          <td>{{userDetails.nick}}</td>
-        </tr>
-        <tr>
-          <td>Imię: </td>
-          <td>{{userDetails.name}}</td>
-        </tr>
-        <tr>
-          <td>Nazwisko: </td>
-          <td>{{userDetails.surname}}</td>
-        </tr>
-        <tr>
-          <td>E-mail: </td>
-          <td>{{userDetails.email}}</td>
-        </tr>
-        <tr>
-          <td>Data urodzin: </td>
-          <td>{{userDetails.birthDate}}</td>
-        </tr>
-        <tr>
-          <td>Opis: </td>
-          <td>{{userDetails.description}}</td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <a routerLink="user/settings" class="button">Edytuj</a>
-          </td>
-        </tr>
-      </table>
+      <form [formGroup]="userForm" (ngSubmit)="changeUserDetails(userForm.value, userDetails.id)">
+        <table>
+          <tr>
+            <td>Nazwa: </td>
+            <td>{{userDetails.nick}}</td>
+          </tr>
+          <tr>
+            <td>Imię: </td>
+            <td><input type="text" [(ngModel)]="userDetails.name" formControlName="name"></td>
+          </tr>
+          <tr>
+            <td>Nazwisko: </td>
+            <td><input type="text" [(ngModel)]="userDetails.surname" formControlName="surname"></td>
+          </tr>
+          <tr>
+            <td>E-mail: </td>
+            <td>{{userDetails.email}}</td>
+          </tr>
+          <tr>
+            <td>Data urodzin: </td>
+            <td>{{userDetails.birthDate}}</td>
+          </tr>
+          <tr>
+            <td>Opis: </td>
+            <td>
+              <textarea [(ngModel)]="userDetails.description" rows="5" cols="20" formControlName="description">
+              </textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" value="Zapisz">
+            </td>
+          </tr>
+        </table>
+      </form>
     </section>
     <section class="user-collections panel">
       <h2>Lista kolekcji: </h2>

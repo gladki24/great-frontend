@@ -1,0 +1,16 @@
+﻿TO-DO: 
+ - Dodaj obrazy kategorii (zrobię samodzielnie w InkScape)
+ - W Przeglądaj i Odkrywaj dodaj Strony
+ - Odświeżanie ma nie wylogowywać użytkownika
+ - Napraw Modal Box
+ - Dodaj możliwość tworzenia i usuwania kolekcji
+ - Usprawnij wygląd wygląd okna kolekcji (RWD!)
+ - Dodaj możliwość usuwania przedmiotów z kolekcji
+ - Dodaj możliwość dodawanie przedmiotów do inneych kolekcji niż domyślna
+ - Zrób te cholerne tagi
+ - Dodaj wyszukiwarki
+
+Rzeczy które warto zrobić zawsze: 
+ - Refaktoryzuj
+ - Refaktoryzuj
+ - i jak jeszcze Refaktoryzuj

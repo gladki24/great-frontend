@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import {ProductGridService} from '../Services/product-grid.service';
 import {IProductTile} from '../Interfaces/IProductTile';
 import {EBrand, ECategory} from '../Enums/EBrand_ECategory';
+import {MainPageService} from '../Services/main-page.service';
+import {ISmallTile} from '../Interfaces/IDetails';
 
 @Component({
   selector: 'app-product-grid',
@@ -18,7 +20,7 @@ export class ProductGridComponent implements OnInit {
   @ViewChild('container', {read: ElementRef}) container: ElementRef;
 
   constructor(private service: ProductGridService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,) {
     this.modal = 'grid-modal';
   }
 

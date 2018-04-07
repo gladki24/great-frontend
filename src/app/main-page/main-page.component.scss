@@ -1,6 +1,6 @@
 main {
   margin-top: 100px;
-  font-family: 'Caveat', 'cursive';
+  font-family: "Josefin Sans";
 }
 
 section {
@@ -8,6 +8,10 @@ section {
   width: 100%;
   background-color: white;
   box-shadow: 0 0 2px 0 #484848;
+
+  h1, h2 {
+    font-family: 'Caveat', 'cursive';
+  }
 
   h1 {
     padding: 10px 0 10px 0;

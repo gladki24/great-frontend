@@ -29,4 +29,13 @@ export class UserService {
     const url = `http://${window.location.hostname}:3000/user/collection/${id}`;
     return this.http.get<ICollectionName[]>(url);
   }
+  public saveUserDetails(form: any, id: string) {
+    const url = `http://${window.location.hostname}:3000/user/save`;
+    return this.http.post<any>(url, {
+      name: form.name,
+      surname: form.surname,
+      description: form.description,
+      id: id
+    });
+  }
 }
