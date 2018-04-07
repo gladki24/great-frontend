@@ -6,7 +6,7 @@ export class User {
     public email: string,
     public nick: string,
     public birthDate: string,
-    public desription: string,
-    private password: string
+    public description: string,
+    public password: string
   ) {}
 }

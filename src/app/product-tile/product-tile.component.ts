@@ -2,6 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IProductTile} from '../Interfaces/IProductTile';
 import {INavState, NavHiddenState} from './TileState';
 import {ShowDetailsService} from '../Services/show-details.service';
+import {UserService} from '../Services/user.service';
+import {CollectionService} from '../Services/collection.service';
+import {DialogService} from '../Services/dialog.service';
+import {EDialogType} from '../Enums/EDialogType';
 
 @Component({
   selector: 'app-product-tile',
@@ -13,7 +17,10 @@ export class ProductTileComponent implements OnInit {
   public cssClass: string;
   public navState: INavState;
   public imgCSS: string;
-  constructor(private showDetailService: ShowDetailsService) {
+  constructor(private showDetailService: ShowDetailsService,
+              private collection: CollectionService,
+              public user: UserService,
+              private dialog: DialogService) {
     this.navState = new NavHiddenState();
     this.cssClass = 'tile-nav-index tile-nav-hide tile-nav';
   }
@@ -32,5 +39,10 @@ export class ProductTileComponent implements OnInit {
   }
   showDetails(): void {
     this.showDetailService.onShowDetails(this.product.id);
+  }
+  saveItem(): void {
+    this.collection.saveItem(this.product.id).subscribe(res => {
+      this.dialog.showDialog('Zapisano produkt', EDialogType.Information);
+    });
   }
 }

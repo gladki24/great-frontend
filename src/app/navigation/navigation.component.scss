@@ -58,3 +58,28 @@ img {
     color: white;
   }
 }
+
+@media only screen and (max-width: 600px) {
+
+  .navigation {
+    justify-content: space-between;
+  }
+
+  .left-panel-btn, .right-panel-btn {
+    width: 100px;
+    padding: 10px;
+  }
+
+  .right-panel-btn {
+    right: 0;
+    &:hover {
+      right: 0;
+    }
+  }
+  .left-panel-btn {
+    left: 0;
+    &:hover {
+      left: 0;
+    }
+  }
+}

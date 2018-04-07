@@ -1,15 +1,19 @@
-<div class="collection">
+<main class="collection">
   <h1>Okno kolekcji: </h1>
-  <table>
+  <table *ngIf="products">
     <tr>
       <th>Nazwa</th>
       <th>Marka</th>
       <th>Zdjęcie</th>
     </tr>
     <tr *ngFor="let product of products">
-      <td>{{product.title}}</td>
+      <td (click)="showDetails(product.id)">
+        <span class="link">{{product.title | lowercase}}</span>
+      </td>
       <td>{{product.brandName}}</td>
-      <td>{{product.imgSource}}</td>
+      <td>
+        <img [alt]="product.title" [src]="product.imgSource">
+      </td>
     </tr>
   </table>
-</div>
+</main>

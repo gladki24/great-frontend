@@ -25,6 +25,7 @@ import {AuthService} from './Services/auth.service';
 import {UserService} from './Services/user.service';
 import {AuthGuard} from './Guards/auth.guard';
 import { CollectionComponent } from './collection/collection.component';
+import {CollectionService} from './Services/collection.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,15 @@ import { CollectionComponent } from './collection/collection.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductGridService, ShowDetailsService, MainPageService, DialogService, AuthService, UserService, AuthGuard],
+  providers: [
+    ProductGridService,
+    ShowDetailsService,
+    MainPageService,
+    DialogService,
+    AuthService,
+    UserService,
+    CollectionService,
+    AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

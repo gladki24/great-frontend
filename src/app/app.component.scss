@@ -1,0 +1,15 @@
+footer {
+  font-family: Roboto;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2px 0 #484848;
+  padding: 10px 0 10px 0;
+  box-sizing: padding-box;
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+}

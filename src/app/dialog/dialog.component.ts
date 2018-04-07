@@ -18,6 +18,9 @@ export class DialogComponent implements OnInit {
         messages.push(message);
         this.message = messages;
       }
+      setTimeout(() => {
+        this.hideDialog();
+      }, 2000);
     });
     this.service.style$.subscribe(style => {
       this.style = style;

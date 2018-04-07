@@ -1,17 +1,13 @@
-<div class="carousel">
-  <div class="carousel-inner" [style.bottom]="position">
-    <a *ngFor="let tile of tilesData" routerLink="explore/{{dataType}}/{{tile.id}}/27">
-      <div class="tile">
-        <img [src]="tile.imgSource" [alt]="tile.name">
-      </div>
-    </a>
+<section class="carousel">
+  <div class="carousel-inner">
+    <ul>
+      <li *ngFor="let tile of tilesData">
+        <a routerLink="explore/{{dataType}}/{{tile.id}}/27">
+          <div class="tile" [title]="tile.name">
+            <img [src]="tile.imgSource">
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
-</div>
-<nav class="carousel-nav">
-  <button class="carousel-btn" (click)="onBtnClick(true)">
-    <i class="fas fa-angle-down"></i>
-  </button>
-  <button class="carousel-btn" (click)="onBtnClick(false)">
-    <i class="fas fa-angle-up"></i>
-  </button>
-</nav>
+</section>

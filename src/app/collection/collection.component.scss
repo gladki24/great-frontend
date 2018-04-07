@@ -5,3 +5,31 @@
   font-family: 'Caveat', 'cursive';
   font-size: 22px;
 }
+
+table {
+  margin: 0 auto 0 auto;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: scale-down;
+}
+
+td {
+  padding: 30px;
+  border-top: 1px solid #247baf;
+}
+
+th {
+  font-size: 26px;
+}
+
+.link {
+  font-size: 22px;
+  &:hover {
+    background: #484848;
+    color: white;
+    text-decoration: underline;
+  }
+}

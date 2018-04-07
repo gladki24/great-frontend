@@ -23,7 +23,7 @@ export class ProductGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getParams();
+    this.createView();
   }
   public onLoad() {
     this.modal = '';
@@ -34,7 +34,7 @@ export class ProductGridComponent implements OnInit {
       this.onLoad();
     });
   }
-  private getParams(): void {
+  private createView(): void {
     this.route.params.subscribe(params => {
       this.productsNumber = parseInt(params['number'], 0);
       this.brand = parseInt(params['brand'], 0);

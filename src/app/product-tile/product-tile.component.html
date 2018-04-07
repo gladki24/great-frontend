@@ -5,7 +5,7 @@
   <div class="tile-title">
     <div class="tile-title-text" title="{{product.title | lowercase}}">{{ product.title | lowercase}}</div>
     <nav [class]="cssClass" (click)="$event.stopPropagation();" (transitionend)="onTransition()">
-      <button class="tile-nav-btn">
+      <button class="tile-nav-btn" [disabled]="!user.getUserLogged()" (click)="saveItem()">
         <i class="fas fa-plus"></i>
       </button>
       <button class="tile-nav-btn" (click)="showDetails()">
