@@ -16,7 +16,7 @@ export class CollectionService {
     const url = `http://${window.location.hostname}:3000/collection/add`;
     return this.http.post<string>(url, {
       productId: id,
-      userId: this.user.getUserId()
+      userId: this.user.getPublicUserData().id
     });
   }
 }

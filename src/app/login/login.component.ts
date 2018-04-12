@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
   signUp(form: IRegister): void {
     this.auth.signUp(form).subscribe(res => {
       this.dialog.showDialog('Użytkownik dodany!', EDialogType.Information);
+      this.signIn(form);
     }, err => {
       this.dialog.showDialog('Użytkownik już istnieje', EDialogType.Error);
     });

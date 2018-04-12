@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   public userDetails: User;
   public collections: ICollectionName[];
   public userForm: FormGroup;
+  public newCollectionName: string;
   constructor(private user: UserService,
               private formBuilder: FormBuilder,
               private router: Router,
@@ -29,19 +30,31 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCollections();
+    this.getUsersCollections();
   }
-  private getCollections() {
+  private getUsersCollections(): void {
     this.user.getCollections(this.userDetails.id).subscribe(collections => {
       this.collections = collections;
     });
   }
-  public changeUserDetails(form: any, id: string) {
+  public changeUserDetails(form: any, id: string): void {
     this.user.saveUserDetails(form, id).subscribe(res => {
       if (res) {
-        this.router.navigate(['user']);
+        // this.userDetails = this.user.;
         this.dialog.showDialog('Zapisano!', EDialogType.Information);
       }
+    });
+  }
+  public logOut(): void {
+    this.user.setUserLogout();
+    this.router.navigate(['/login']);
+    this.dialog.showDialog('Wylogowano', EDialogType.Warning);
+  }
+  public addCollection(name: string): void {
+    this.user.addCollection(name).subscribe(res => {
+      this.dialog.showDialog('Dodano', EDialogType.Information);
+    }, err => {
+      this.dialog.showDialog('Błąd', EDialogType.Error);
     });
   }
 }

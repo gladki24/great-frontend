@@ -11,9 +11,9 @@ import {Observable} from 'rxjs/Observable';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  public signUp(data: IRegister): Observable<string> {
+  public signUp(data: IRegister): Observable<boolean> {
     const url = `http://${window.location.hostname}:3000/user/add`;
-    return this.http.post<string>(url, {
+    return this.http.post<boolean>(url, {
       email: data.email,
       password: data.password,
       nick: data.nick,
