@@ -1,6 +1,6 @@
 <main class="collection">
-  <h1>Okno kolekcji: </h1>
-  <table *ngIf="products">
+  <h1>Okno kolekcji: <span *ngIf="title">{{title}}</span></h1>
+  <table *ngIf="products && products.length > 0; else empty">
     <tr>
       <th>Nazwa</th>
       <th>Marka</th>
@@ -16,4 +16,7 @@
       </td>
     </tr>
   </table>
+  <ng-template #empty>
+    <h2>Jeszcze nic nie dodano do tej kolekcji :(</h2>
+  </ng-template>
 </main>

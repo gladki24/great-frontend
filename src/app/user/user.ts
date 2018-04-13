@@ -7,6 +7,5 @@ export class User {
     public nick: string,
     public birthDate: string,
     public description: string,
-    public password: string
   ) {}
 }

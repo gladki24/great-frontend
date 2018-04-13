@@ -59,12 +59,12 @@ export class LoginComponent implements OnInit {
   }
   signIn(form: ILogin): void {
     this.auth.signIn(form).subscribe(res => {
-      if (res.length === 1 ) {
-        this.dialog.showDialog('Zalogowano!', EDialogType.Information);
-        this.user.setUserLogged(res);
+      if (res !== null) {
+        this.user.setUserLogged(res.id);
+        this.dialog.showDialog('Zalogowano', EDialogType.Information);
         this.router.navigate(['/user']);
       } else {
-        this.dialog.showDialog('Użytkownik nie istnieje', EDialogType.Error);
+        this.dialog.showDialog('Błędny login lub hasło', EDialogType.Error);
       }
     }, err => {
       this.dialog.showDialog('Błąd serwera', EDialogType.Error);

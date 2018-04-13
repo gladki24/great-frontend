@@ -12,6 +12,7 @@ import {ShowDetailsService} from '../Services/show-details.service';
 export class CollectionComponent implements OnInit {
   private id: number;
   public products: ICollectionItem[];
+  public title: string;
   constructor(private router: ActivatedRoute,
               private service: CollectionService,
               private showDetailService: ShowDetailsService) { }
@@ -22,13 +23,18 @@ export class CollectionComponent implements OnInit {
   private createView(): void {
     this.router.params.subscribe(params => {
       this.id = parseInt(params['id'], 0);
-      this.getProducts(this.id);
+      this.getItems(this.id);
+      this.getCollectionTitle();
     });
   }
-  private getProducts(id: number): void {
-    this.service.getProducts(id).subscribe(res => {
+  private getItems(id: number): void {
+    this.service.getItems(id).subscribe(res => {
       this.products = res;
-      console.log(this.products);
+    });
+  }
+  private getCollectionTitle(): void {
+    this.service.getCollectionTitle(this.id).subscribe(title => {
+      this.title = title.title;
     });
   }
   showDetails(id: string): void {

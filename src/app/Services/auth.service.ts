@@ -20,9 +20,9 @@ export class AuthService {
       birth: data.birth
     });
   }
-  public signIn(data: ILogin): Observable<User[]> {
+  public signIn(data: ILogin): Observable<any> {
     const url = `http://${window.location.hostname}:3000/user/login`;
-    return this.http.post<User[]>(url, {
+    return this.http.post<any>(url, {
       email: data.email,
       password: data.password
     });

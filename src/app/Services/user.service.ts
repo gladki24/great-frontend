@@ -6,30 +6,30 @@ import { ICollectionName } from '../Interfaces/ICollectionName';
 
 @Injectable()
 export class UserService {
+  private userId: string;
   private isUserLogged: boolean;
-  private userData: User;
   constructor(private http: HttpClient) {
     this.isUserLogged = false;
   }
-  public setUserLogged(data: User[]): void {
+  public setUserLogged(id: string): void {
     this.isUserLogged = true;
-    this.userData = data[0];
-    localStorage.setItem('user', this.userData.id);
+    this.userId = id;
+    localStorage.setItem('user', id);
   }
   public setUserLogout(): void {
     this.isUserLogged = false;
+    this.userId = undefined;
     localStorage.clear();
   }
   public getUserLogged(): boolean {
     return this.isUserLogged;
   }
-  public getPublicUserData(): User {
-    const userPublicData = Object.assign({password: 'Top Secret'}, this.userData);
-    return userPublicData;
+  public getUserId(): string {
+    return this.userId;
   }
-  public getCollections(id: string): Observable<ICollectionName[]> {
-    const url = `http://${window.location.hostname}:3000/user/collection/${id}`;
-    return this.http.get<ICollectionName[]>(url);
+  public getUserDetails(): Observable<User> {
+    const url = `http://${window.location.hostname}:3000/user/${this.userId}`;
+    return this.http.get<User>(url);
   }
   public saveUserDetails(form: any, id: string): Observable<boolean> {
     const url = `http://${window.location.hostname}:3000/user/save`;
@@ -40,11 +40,21 @@ export class UserService {
       id: id
     });
   }
-  public addCollection(name: string): Observable<number> {
+  public getUserCollections(id: string): Observable<ICollectionName[]> {
+    const url = `http://${window.location.hostname}:3000/user/collection/${id}`;
+    return this.http.get<ICollectionName[]>(url);
+  }
+  public addUserCollection(name: string): Observable<number> {
     const url = `http://${window.location.hostname}:3000/collection/new`;
     return this.http.post<number>(url, {
       name: name,
-      id: this.userData.id
+      id: this.userId
+    });
+  }
+  public deleteUserCollection(id: number): Observable<boolean> {
+    const url = `http://${window.location.hostname}:3000/collection/delete`;
+    return this.http.post<boolean>(url, {
+      id: id
     });
   }
 }

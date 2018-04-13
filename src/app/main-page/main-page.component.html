@@ -10,8 +10,8 @@
     <app-tile-carousel [tilesData]="categories" *ngIf="categories" dataType="category"></app-tile-carousel>
   </section>
 
-  <section class="user" id="user" *ngIf="userLogged">
-    <h1>Użytkownik: {{publicUserData.nick}}</h1>
+  <section class="user" id="user" *ngIf="userLogged && userDetails">
+    <h1>Użytkownik: {{userDetails.nick}}</h1>
     <div class="collection">
       <h2 *ngIf="collections">Twoje kolekcje: </h2>
       <ul>

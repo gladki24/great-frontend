@@ -13,16 +13,16 @@ import {ICollectionName} from '../Interfaces/ICollectionName';
 export class MainPageComponent implements OnInit {
   public brands: ISmallTile[];
   public categories: ISmallTile[];
-  public publicUserData: User;
   public userLogged: boolean;
   public collections: ICollectionName[];
+  public userDetails: User;
   constructor(private service: MainPageService,
               private user: UserService) {
     this.getBrands();
     this.getCategories();
-    this.publicUserData = user.getPublicUserData();
-    this.userLogged = user.getUserLogged();
+    this.userLogged = this.user.getUserLogged();
     if (this.userLogged) {
+      this.getUserDetails();
       this.getCollections();
     }
   }
@@ -40,8 +40,13 @@ export class MainPageComponent implements OnInit {
     });
   }
   getCollections(): void {
-    this.user.getCollections(this.publicUserData.id).subscribe(collections => {
+    this.user.getUserCollections(this.user.getUserId()).subscribe(collections => {
       this.collections = collections;
+    });
+  }
+  getUserDetails(): void {
+    this.user.getUserDetails().subscribe(details => {
+      this.userDetails = details;
     });
   }
 }
