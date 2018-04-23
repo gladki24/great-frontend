@@ -13,7 +13,6 @@ import {ICollectionName} from '../Interfaces/ICollectionName';
 export class RightPanelComponent implements OnInit, IPanel {
   public state: EStatePanel;
   public style: string;
-  public userLogged: boolean;
   public productDetail: IDetails;
   private productId: string;
   public collections: ICollectionName[];
@@ -45,11 +44,14 @@ export class RightPanelComponent implements OnInit, IPanel {
   public openPanel(): void {
     this.style = 'right-panel';
     this.state = EStatePanel.open;
+    console.log(this.user.getUserLogged());
+    if (this.user.getUserLogged()) {
+      this.getCollections();
+    }
   }
   private getCollections(): void {
     this.user.getUserCollections(this.user.getUserId()).subscribe(collections => {
       this.collections = collections;
-      console.log(collections);
     });
   }
 }

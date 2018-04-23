@@ -15,7 +15,7 @@
           <a class="product-link" [href]="productDetail.link" target="_blank">Link do produktu</a>
         </li>
       </ul>
-      <div class="add-form" *ngIf="userLogged">
+      <div class="add-form" *ngIf="this.collection">
         <select>
           <option *ngFor="let collection of collections">{{collection.title}}</option>
         </select>

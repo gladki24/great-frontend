@@ -1,6 +1,6 @@
 .filter {
   width: 800px;
-  font-family: "Josefin Sans";
+  font-family: "Roboto";
   margin: 100px auto 0 auto;
   background-color: white;
   padding: 20px;
@@ -18,12 +18,11 @@ form {
 input, select {
   width: 100%;
   font-size: 18px;
-  font-family: "Josefin Sans";
+  font-family: "Roboto";
 }
 
 input[type="submit"] {
   height: 100%;
-  width: 100%;
   background-color: #ffe066;
   width: 50px;
   border: 1px solid white;

@@ -8,6 +8,20 @@
   padding: 10px;
 }
 
+.gradient {
+  background: linear-gradient(45deg, #9400d3 , #87cefa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 26px;
+  color: white;
+  font-family: Roboto;
+  font-weight: 700;
+}
+
 ul {
   display: flex;
   flex-direction: row;
@@ -28,6 +42,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 img {

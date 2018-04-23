@@ -4,7 +4,10 @@
       <li *ngFor="let tile of tilesData">
         <a routerLink="explore/{{dataType}}/{{tile.id}}/27">
           <div class="tile" [title]="tile.name">
-            <img [src]="tile.imgSource">
+            <img *ngIf="tile.imgSource; else gradient" [src]="tile.imgSource" [alt]="tile.name">
+            <ng-template #gradient>
+              <div class="gradient">{{tile.name}}</div>
+            </ng-template>
           </div>
         </a>
       </li>

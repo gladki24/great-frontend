@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {DialogService} from './dialog.service';
-import {EDialogType} from '../Enums/EDialogType';
 import {ILogin, IRegister} from '../Interfaces/ILogin_IRegsiter';
-import {Subscription} from 'rxjs/Subscription';
-import {User} from '../user/user';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
