@@ -15,10 +15,12 @@
           <a class="product-link" [href]="productDetail.link" target="_blank">Link do produktu</a>
         </li>
       </ul>
-      <div class="add-form" *ngIf="this.collection">
-        <select>
-          <option *ngFor="let collection of collections">{{collection.title}}</option>
+      <div class="add-form" *ngIf="this.collections">
+        <h2>Dodaj produkt do kolekcji: </h2>
+        <select #select>
+          <option *ngFor="let collection of collections" [value]="collection.id">{{collection.title}}</option>
         </select>
+        <button (click)="addToCollection(select.value)">Dodaj do kolekcji</button>
       </div>
     </div>
   </article>

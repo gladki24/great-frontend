@@ -1,6 +1,89 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+$red: #f25f5c;
 
 body {
   margin: 0;
   background-color: #F1F1F1;
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+div, footer, nav, section, article, aside {
+  background-color: white;
+}
+
+h1, h2, h3 {
+  font-family: 'Caveat', 'cursive';
+  text-align: center;
+  color: #282828;
+  padding: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+input, select, button, textarea {
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+input[type=button], input[type=submit], button {
+  text-decoration: none;
+  color: initial;
+  text-align: center;
+  border: none;
+  padding: 2.5px;
+}
+
+input[type=text], input[type=email], input[type=password] {
+}
+
+img {
+  object-fit: scale-down;
+}
+
+a {
+  text-decoration: none;
+  color: $red;
+  &:hover {
+    text-decoration: underline;
+    color: darken($red, 4);
+  }
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+table, th, tr, td {
+  font-size: 16px;
+  input, button, select {
+    width: 100%;
+    min-width: 50px;
+  }
+}
+
+footer {
+  width: 100%;
+  margin: 20px 0 0 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 2px 0 #484848;
+  padding: 20px 0 10px 0;
+  box-sizing: padding-box;
+  ul {
+    text-align: center;
+  }
 }

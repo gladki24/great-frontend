@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Caveat');
-
 .left-panel {
-  background-color: white;
   position: fixed;
   z-index: 30;
   left: 0;
@@ -18,14 +15,13 @@
 }
 
 h2 {
-  text-align: center;
-  font-size: 32px;
   color: #f25f5c;
 }
 
 nav {
   ul {
     list-style: none;
+    margin-left: 30px;
     li {
       display: block;
       width: 100%;

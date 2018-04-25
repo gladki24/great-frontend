@@ -23,4 +23,11 @@ export class CollectionService {
     const sql = `http://${window.location.hostname}:3000/collection/title/${id}`
     return this.http.get<any>(sql);
   }
+  public addItemToCollection(itemId: string, collectionId: number) {
+    const url = `http://${window.location.hostname}:3000/collection/add`;
+    return this.http.post<string>(url, {
+      productId: itemId,
+      collectionId: collectionId
+    });
+  }
 }

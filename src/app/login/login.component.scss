@@ -3,9 +3,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 100px 0px 100px 0px;
-  background-color: white;
-  // box-shadow: 0 0 2px 0 #484848;
-  font-family: 'Caveat', 'cursive';
   padding: 20px 0 20px 0;
 }
 
@@ -31,7 +28,6 @@
 }
 
 h1 {
-  text-align: center;
   i {
     font-size: 24px;
     padding-right: 10px;
@@ -40,7 +36,8 @@ h1 {
 }
 
 legend {
-  font-size: 18px;
+  font-size: 22px;
+  font-family: 'Caveat', 'cursive';
 }
 
 fieldset {
@@ -48,8 +45,6 @@ fieldset {
 }
 
 button, input {
-  font-family: Calibri;
-  font-size: 18px;
   width: 100%;
   border: none;
 }

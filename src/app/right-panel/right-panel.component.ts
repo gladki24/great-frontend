@@ -4,6 +4,9 @@ import {ShowDetailsService} from '../Services/show-details.service';
 import {IDetails} from '../Interfaces/IDetails';
 import {UserService} from '../Services/user.service';
 import {ICollectionName} from '../Interfaces/ICollectionName';
+import {CollectionService} from '../Services/collection.service';
+import {DialogService} from '../Services/dialog.service';
+import {EDialogType} from '../Enums/EDialogType';
 
 @Component({
   selector: 'app-right-panel',
@@ -17,7 +20,9 @@ export class RightPanelComponent implements OnInit, IPanel {
   private productId: string;
   public collections: ICollectionName[];
   constructor(private showDetailsService: ShowDetailsService,
-              private user: UserService) {
+              private user: UserService,
+              private collectionService: CollectionService,
+              private dialog: DialogService) {
     this.showDetailsService.id$.subscribe(id => {
       this.productId = id;
       this.showDetailsService.getDetails(this.productId).subscribe(product => {
@@ -44,10 +49,17 @@ export class RightPanelComponent implements OnInit, IPanel {
   public openPanel(): void {
     this.style = 'right-panel';
     this.state = EStatePanel.open;
-    console.log(this.user.getUserLogged());
     if (this.user.getUserLogged()) {
       this.getCollections();
     }
+  }
+  public addToCollection(collectionId: number) {
+    this.collectionService.addItemToCollection(this.productId, collectionId).subscribe(res => {
+      this.dialog.showDialog('Dodano!', EDialogType.Information);
+      console.log(res);
+    }, err => {
+      this.dialog.showDialog('Produkt już jest w tej kolekcji', EDialogType.Warning);
+    });
   }
   private getCollections(): void {
     this.user.getUserCollections(this.user.getUserId()).subscribe(collections => {
