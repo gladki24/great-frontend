@@ -2,10 +2,12 @@
   position: fixed;
   z-index: 30;
   left: 0;
-  width: 30%;
   top: 60px;
   bottom: 0;
+  width: 30%;
   transition: left 0.75s;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border-right: 1px solid #f25f5c;
   font-family: 'Caveat', 'cursive';
 }

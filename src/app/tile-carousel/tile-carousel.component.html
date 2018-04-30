@@ -1,6 +1,6 @@
 <section class="carousel">
-  <div class="carousel-inner">
-    <ul>
+  <div class="carousel-inner" *ngIf="tilesData">
+    <ul appTileScroll>
       <li *ngFor="let tile of tilesData">
         <a routerLink="explore/{{dataType}}/{{tile.id}}/27">
           <div class="tile" [title]="tile.name">

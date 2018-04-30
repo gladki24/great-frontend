@@ -1,4 +1,4 @@
 export interface ICollectionName {
   title: string;
-  id: string;
+  id: number;
 }

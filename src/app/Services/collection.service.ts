@@ -23,11 +23,18 @@ export class CollectionService {
     const sql = `http://${window.location.hostname}:3000/collection/title/${id}`
     return this.http.get<any>(sql);
   }
-  public addItemToCollection(itemId: string, collectionId: number) {
+  public addItemToCollection(itemId: string, collectionId: number): Observable<boolean> {
     const url = `http://${window.location.hostname}:3000/collection/add`;
-    return this.http.post<string>(url, {
+    return this.http.post<boolean>(url, {
       productId: itemId,
       collectionId: collectionId
+    });
+  }
+  public removeItem(collectionId: number, productId: string): Observable<boolean> {
+    const url = `http://${window.location.hostname}:3000/collection/remove`;
+    return this.http.post<boolean>(url, {
+      collectionId: collectionId,
+      productId: productId
     });
   }
 }

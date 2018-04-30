@@ -1,5 +1,4 @@
 .right-panel {
-  background-color: #E9E9E9;
   position: fixed;
   z-index: 30;
   right: 0;
@@ -10,6 +9,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   border-left: 1px solid #70c1b3;
+  background-color: #E9E9E9;
 }
 
 .hidden-right-panel {
@@ -78,6 +78,9 @@
       color: darken(#f25f5c, 20%);
       text-decoration: underline;
     }
+  }
+  .add-form {
+    padding: 20px;
   }
   select, button {
     font-family: Roboto;

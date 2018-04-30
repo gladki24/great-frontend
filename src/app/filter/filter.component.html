@@ -10,16 +10,25 @@
       <tr>
         <td>
           <select *ngIf="categoryList" formControlName="category">
-            <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+            <option [ngValue]="null" disabled>Wybierz kategorię: </option>
+            <option *ngFor="let category of categoryList"
+                    [value]="category.id">
+              {{category.name}}
+            </option>
           </select>
         </td>
         <td>
           <select *ngIf="brandList" formControlName="brand">
-            <option *ngFor="let brand of brandList" [value]="brand.id">{{brand.name}}</option>
+            <option [ngValue]="null" disabled>Wybierz markę: </option>
+            <option *ngFor="let brand of brandList"
+                    [value]="brand.id">
+              {{brand.name}}
+            </option>
           </select>
         </td>
         <td>
           <select formControlName="number">
+            <option [ngValue]="null" disabled>Ilość na stronie: </option>
             <option value="27">27</option>
             <option value="54">54</option>
             <option value="81">81</option>

@@ -5,18 +5,22 @@
       <th>Nazwa</th>
       <th>Marka</th>
       <th>Zdjęcie</th>
+      <th></th>
     </tr>
     <tr *ngFor="let product of products">
       <td (click)="showDetails(product.id)">
-        <span class="link">{{product.title | lowercase}}</span>
+        <a>{{product.title | lowercase}}</a>
       </td>
       <td>{{product.brandName}}</td>
       <td>
         <img [alt]="product.title" [src]="product.imgSource">
       </td>
+      <td *ngIf="userAuth">
+        <button (click)="removeProduct(product.id)">Usuń</button>
+      </td>
     </tr>
   </table>
   <ng-template #empty>
-    <h2>Jeszcze nic nie dodano do tej kolekcji :(</h2>
+    <h2>Ta kolekcja jest pusta</h2>
   </ng-template>
 </main>

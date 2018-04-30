@@ -37,10 +37,13 @@ input, select, button, textarea {
 
 input[type=button], input[type=submit], button {
   text-decoration: none;
-  color: initial;
+  color: black;
   text-align: center;
   border: none;
   padding: 2.5px;
+  &:disabled {
+    color: #686868;
+  }
 }
 
 input[type=text], input[type=email], input[type=password] {

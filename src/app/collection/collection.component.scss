@@ -18,17 +18,11 @@ img {
 td {
   padding: 30px;
   border-top: 1px solid #247baf;
+  a {
+    cursor: pointer;
+  }
 }
 
 th {
   font-size: 26px;
-}
-
-.link {
-  font-size: 22px;
-  &:hover {
-    background: #484848;
-    color: white;
-    text-decoration: underline;
-  }
 }

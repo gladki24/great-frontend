@@ -1,5 +1,5 @@
 <app-filter></app-filter>
-<main class="product-grid" #container *ngIf="products; else notFound">
+<main class="product-grid" #container *ngIf="(products && products.length > 0) | async; else notFound">
   <app-product-tile *ngFor="let product of products" [product]="product"></app-product-tile>
   <div [class]="modal">
     <div class="grid-modal-animation"></div>
