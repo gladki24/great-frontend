@@ -57,4 +57,10 @@ export class UserService {
       id: id
     });
   }
+  public delete(id: string): Observable<boolean> {
+    const url = `http://${window.location.hostname}:3000/user/delete`;
+    return this.http.post<boolean>(url, {
+      id: id
+    });
+  }
 }

@@ -33,16 +33,31 @@ h2 {
 input, select, button, textarea {
   font-family: Roboto;
   font-size: 16px;
+  &:focus {
+    outline: none;
+  }
 }
 
 input[type=button], input[type=submit], button {
   text-decoration: none;
   color: black;
+  background-color: initial;
   text-align: center;
   border: none;
-  padding: 2.5px;
-  &:disabled {
+  border-bottom: 1px solid #f25f5c;
+  padding: 5px 2.5px 5px 2.5px;
+  margin: 1px;
+  cursor: pointer;
+  &:disabled{
     color: #686868;
+    border-bottom: 1px solid #F1F1F1;
+  }
+  &:hover:disabled {
+    background-color: #aeaeae;
+  }
+  &:hover {
+    background-color: #f25f5c;
+    color: white;
   }
 }
 

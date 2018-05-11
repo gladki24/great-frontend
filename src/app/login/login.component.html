@@ -1,13 +1,16 @@
 <div class="login">
-  <div class="form-box">
+  <nav>
+    <ul>
+      <li><button (click)="showSection(1)">Rejestracja</button></li>
+      <li><button (click)="showSection(2)">Logowanie</button></li>
+    </ul>
+  </nav>
+  <div class="form-box" *ngIf="visibleSection == 1">
     <h1><i class="fas fa-user-plus"></i>Rejestracja</h1>
       <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value)">
 
         <div class="input-group">
-          <fieldset>
-            <legend>Nazwa: </legend>
-            <input type="text" formControlName="nick" id="nick">
-          </fieldset>
+          <input type="text" formControlName="nick" id="nick" placeholder="Nazwa użytkownika: ">
           <div class="error" *ngIf="registerForm.controls['nick'].invalid && registerForm.controls['nick'].touched">
             Nazwa musi:
             <ul>
@@ -19,10 +22,7 @@
         </div>
 
         <div class="input-group">
-          <fieldset>
-            <legend>E-mail: </legend>
-            <input type="email" formControlName="email" id="email">
-          </fieldset>
+          <input type="email" formControlName="email" id="email" placeholder="Adres e-mail: ">
           <div class="error" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
             E-mail musi:
             <ul>
@@ -33,10 +33,7 @@
         </div>
 
         <div class="input-group">
-          <fieldset>
-            <legend>Hasło: </legend>
-            <input type="password" formControlName="password" id="password">
-          </fieldset>
+          <input type="password" formControlName="password" id="password" placeholder="Twoje hasło: ">
           <div class="error"
                *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
             Hasło musi:
@@ -48,17 +45,11 @@
         </div>
 
         <div class="input-group">
-          <fieldset>
-            <legend>Data urodzin: </legend>
-            <input type="date" formControlName="birth" id="birth">
-          </fieldset>
+          <input type="date" formControlName="birth" id="birth">
         </div>
 
         <div class="input-group">
-          <fieldset>
-            <legend>Zaakceptuj regulamin: </legend>
-            <input type="checkbox" formControlName="terms" id="terms">
-          </fieldset>
+          <input type="checkbox" formControlName="terms" id="terms">
           <div class="error">
             Aby się zarejestrować musisz zaakceptować regulamin (którego jeszcze nie ma)
             <a href="/assets/TODO.txt">Regulamin</a>
@@ -71,24 +62,17 @@
       </form>
   </div>
 
-  <div class="form-box">
+  <div class="form-box" *ngIf="visibleSection == 2">
     <h1><i class="fas fa-sign-in-alt"></i>Logowanie</h1>
     <div class="form">
       <form [formGroup]="loginForm" (ngSubmit)="signIn(loginForm.value)">
         <div class="input-group">
-          <fieldset>
-            <legend>E-mail: </legend>
-            <input type="email" formControlName="email" id="login-email">
-          </fieldset>
+          <input type="email" formControlName="email" id="login-email" placeholder="Adres e-mail: ">
         </div>
 
         <div class="input-group">
-          <fieldset>
-            <legend>Hasło: </legend>
-            <input type="password" formControlName="password" id="login-password"><br>
-          </fieldset>
+          <input type="password" formControlName="password" id="login-password" placeholder="Twoje hasło: ">
         </div>
-
         <div class="input-group">
           <input type="submit" value="Zaloguj" [disabled]="!loginForm.valid">
         </div>

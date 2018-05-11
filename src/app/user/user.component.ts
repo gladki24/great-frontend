@@ -17,10 +17,12 @@ export class UserComponent implements OnInit {
   public collections: ICollectionName[];
   public userForm: FormGroup;
   public newCollectionName: string;
+  public visibleSection: number;
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
               private router: Router,
               private dialog: DialogService) {
+    this.visibleSection = 1;
     this.userForm = formBuilder.group({
       'name': [null],
       'surname': [null],
@@ -31,6 +33,9 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.getUserDetails();
     this.getUsersCollections();
+  }
+  public showSection(number: number) {
+    this.visibleSection = number;
   }
   private getUserDetails(): void {
     this.userService.getUserDetails().subscribe(res => {
@@ -70,6 +75,17 @@ export class UserComponent implements OnInit {
       if (res) {
         this.dialog.showDialog('Usunięto kolekcje', EDialogType.Warning);
         this.getUsersCollections();
+      } else {
+        this.dialog.showDialog('Błąd', EDialogType.Error);
+      }
+    });
+  }
+  public deleteUser(): void {
+    this.userService.delete(this.userService.getUserId()).subscribe(res => {
+      if (res) {
+        this.dialog.showDialog('Użytkownik usunięty', EDialogType.Warning);
+        this.userService.setUserLogout();
+        this.router.navigate(['/login']);
       } else {
         this.dialog.showDialog('Błąd', EDialogType.Error);
       }

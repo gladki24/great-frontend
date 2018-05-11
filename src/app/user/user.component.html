@@ -1,7 +1,14 @@
 <div class="dashboard" *ngIf="userDetails">
   <h1>Panel Użytkownika</h1>
-  <div class="flex">
-    <section class="user-details">
+  <nav>
+    <ul>
+      <li><button (click)="showSection(1)">Dane</button></li>
+      <li><button (click)="showSection(2)">Kolekcje</button></li>
+      <li><button (click)="showSection(3)">Opcje</button></li>
+    </ul>
+  </nav>
+  <div>
+    <section class="user-details" *ngIf="visibleSection == 1">
       <h2>Dane użytkownika: </h2>
       <form [formGroup]="userForm" (ngSubmit)="changeUserDetails(userForm.value, userDetails.id)">
         <table>
@@ -40,7 +47,7 @@
         </table>
       </form>
     </section>
-    <section class="user-collections panel" *ngIf="collections">
+    <section class="user-collections panel" *ngIf="collections && visibleSection == 2">
       <h2>Lista kolekcji: </h2>
       <table>
         <tr>
@@ -57,15 +64,22 @@
             </button>
           </td>
         </tr>
+        <tr>
+          <td>
+            <input type="text" [(ngModel)]="newCollectionName" placeholder="Nazwa kolekcji: ">
+          </td>
+          <td>
+            <button (click)="addCollection(newCollectionName)">
+              <i class="fas fa-plus"></i>
+            </button>
+          </td>
+        </tr>
       </table>
-      <div class="add-collection">
-        <input type="button" class="button" value="Dodaj" (click)="addCollection(newCollectionName)">
-        <input type="text" [(ngModel)]="newCollectionName" placeholder="Nazwa kolekcji: ">
-      </div>
     </section>
-    <section class="settings">
+    <section class="settings" *ngIf="visibleSection == 3">
       <h2>Opcje: </h2>
       <input type="button" class="button" value="Wyloguj" (click)="logOut()">
+      <input type="button" class="button" value="Usuń konto" (click)="deleteUser()">
     </section>
   </div>
 </div>

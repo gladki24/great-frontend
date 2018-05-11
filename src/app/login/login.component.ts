@@ -15,12 +15,14 @@ import {UserService} from '../Services/user.service';
 export class LoginComponent implements OnInit {
   public registerForm: FormGroup;
   public loginForm: FormGroup;
+  public visibleSection: number;
   constructor(
     private formBuilder: FormBuilder,
     private dialog: DialogService,
     private router: Router,
     private auth: AuthService,
     private user: UserService) {
+    this.visibleSection = 2;
     this.registerForm = formBuilder.group({
       'nick': [null, Validators.compose([
         Validators.required,
@@ -49,7 +51,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  signUp(form: IRegister): void {
+  public showSection(number: number): void {
+    this.visibleSection = number;
+  }
+  public signUp(form: IRegister): void {
     this.auth.signUp(form).subscribe(res => {
       this.dialog.showDialog('Użytkownik dodany!', EDialogType.Information);
       this.signIn(form);
@@ -57,7 +62,7 @@ export class LoginComponent implements OnInit {
       this.dialog.showDialog('Użytkownik już istnieje', EDialogType.Error);
     });
   }
-  signIn(form: ILogin): void {
+  public signIn(form: ILogin): void {
     this.auth.signIn(form).subscribe(res => {
       if (res !== null) {
         this.user.setUserLogged(res.id);

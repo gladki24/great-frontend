@@ -14,16 +14,6 @@ form {
   align-items: center;
 }
 
-input[type="submit"] {
-  background-color: #ffe066;
-  &:hover {
-    background-color: #ffe61b;
-  }
-  &:active {
-    background-color: #ffa51c;
-  }
-}
-
 @media only screen and (max-width: 800px) {
   .filter {
     width: 100%;

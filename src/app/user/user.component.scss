@@ -4,9 +4,16 @@
 }
 
 section {
-  flex-grow: 1;
   padding: 0 50px 0 50px;
-  border-right: 2px solid #E9E9E9;
+}
+
+table {
+  margin: 0 auto 0 auto;
+  min-width: 400px;
+}
+
+form {
+  display: block;
 }
 
 .button {
@@ -16,28 +23,23 @@ section {
   appearance: button;
 }
 
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-.add-collection {
-  display: flex;
-  padding-top: 20px;
-  input[type='button'] {
-    width: 30%;
-  }
-  input[type='text'] {
-    width: 70%;
-  }
-}
-
 input, textarea {
   width: 100%;
 }
 
 td {
   padding-left: 10px;
+}
+
+nav {
+  margin: 10px 0 10px 0;
+  ul {
+    display: flex;
+    li {
+      width: 33%;
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
