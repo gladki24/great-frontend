@@ -10,9 +10,8 @@ import {CollectionComponent} from '../collection/collection.component';
 
 const Routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'explore/brand/:brand/:number', component: ProductGridComponent },
-  { path: 'explore/category/:category/:number', component: ProductGridComponent },
   { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
+  { path: 'explore/:brand/:category/:number/:query', component: ProductGridComponent},
   { path: 'login', component: LoginComponent },
   { path: 'user', canActivate: [AuthGuard], component: UserComponent},
   { path: 'user/settings', canActivate: [AuthGuard], component: UserComponent},

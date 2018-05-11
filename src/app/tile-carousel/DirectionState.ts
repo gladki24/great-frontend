@@ -17,3 +17,15 @@ export class RightScroll implements DirectionState {
     context.scrollPosition > width ? context.directionState = new LeftScroll() : context.scrollPosition += 1;
   }
 }
+
+export class SuspendScroll implements DirectionState {
+  public scroll(context: TileScrollDirective): void {
+    clearInterval(context.interval);
+    setTimeout(() => {
+      context.interval = setInterval(() => {
+        context.scroll();
+      }, 10);
+      context.directionState = new LeftScroll();
+    }, 5000);
+  }
+}

@@ -1,9 +1,9 @@
 ﻿TO-DO:
- - W Przeglądaj i Odkrywaj dodaj Strony
  - Odświeżanie ma nie wylogowywać użytkownika
  - Zrób tagi
  - Dodaj wyszukiwarki
  - Serduszka
+ - Karuzela powinna mieć dostosowaną długość
 
 Rzeczy które warto zrobić zawsze:
  - Refaktoryzuj

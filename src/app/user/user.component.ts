@@ -6,7 +6,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
-import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-user',

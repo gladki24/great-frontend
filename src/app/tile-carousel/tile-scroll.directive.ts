@@ -1,6 +1,6 @@
-import {Directive, ElementRef, Input} from '@angular/core';
+import {Directive, ElementRef, HostBinding} from '@angular/core';
 import {HostListener} from '@angular/core';
-import {DirectionState, RightScroll, LeftScroll} from './DirectionState';
+import {DirectionState, RightScroll, LeftScroll, SuspendScroll} from './DirectionState';
 
 @Directive({
   selector: '[appTileScroll]'
@@ -11,7 +11,6 @@ export class TileScrollDirective {
   public directionState: DirectionState;
 
   constructor(public element: ElementRef) {
-    console.log(element.nativeElement.childElementCount);
     this.directionState = new RightScroll();
     this.scrollPosition = 0;
     this.interval = setInterval(() => {
@@ -19,10 +18,9 @@ export class TileScrollDirective {
     }, 10);
   }
   @HostListener('mouseover') onUserScroll(): void {
-    clearInterval(this.interval);
+    this.directionState = new SuspendScroll();
   }
-  private scroll(): void {
-    // console.log(this.scrollPosition);
+  public scroll(): void {
     this.directionState.scroll(this);
     this.element.nativeElement.scrollTo(this.scrollPosition, 0);
   }

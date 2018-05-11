@@ -8,14 +8,7 @@ import {EBrand, ECategory} from '../Enums/EBrand_ECategory';
 export class ProductGridService {
   constructor(private http: HttpClient) { }
   getProducts(count: number, brand?: EBrand, category?: ECategory): Observable<IProductTile[]> {
-    let url: string;
-    if (brand && category) {
-      url = `http://${window.location.hostname}:3000/product/${count}/${brand}/${category}`;
-    } else if (brand) {
-      url = `http://${window.location.hostname}:3000/product/brand/${brand}/${count}`;
-    } else if (category) {
-      url = `http://${window.location.hostname}:3000/product/category/${category}/${count}`;
-    }
+    const url = `http://${window.location.hostname}:3000/product/${count}/${brand}/${category}`;
     return this.http.get<IProductTile[]>(url);
   }
 }

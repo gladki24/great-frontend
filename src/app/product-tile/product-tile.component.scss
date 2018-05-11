@@ -6,13 +6,10 @@ $shadow-color: #484848;
 $shadow-color-hover: #247baf;
 
 .tile {
-  break-inside: avoid-column;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  width: 100%;
+  width: 250px;
   cursor: pointer;
   box-sizing: border-box;
-  margin: 0 0 57.5px 0;
+  margin: 0 25px 57.5px 25px;
   background-color: #F1F1F1;
 }
 

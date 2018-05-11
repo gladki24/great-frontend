@@ -2,7 +2,7 @@
   <div class="carousel-inner" *ngIf="tilesData">
     <ul appTileScroll>
       <li *ngFor="let tile of tilesData">
-        <a routerLink="explore/{{dataType}}/{{tile.id}}/27">
+        <a [routerLink]="createUrl(tile.id)">
           <div class="tile" [title]="tile.name">
             <img *ngIf="tile.imgSource; else gradient" [src]="tile.imgSource" [alt]="tile.name">
             <ng-template #gradient>

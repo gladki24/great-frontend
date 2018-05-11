@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {ProductGridService} from '../Services/product-grid.service';
 import {IProductTile} from '../Interfaces/IProductTile';
 import {EBrand, ECategory} from '../Enums/EBrand_ECategory';
@@ -18,7 +18,8 @@ export class ProductGridComponent implements OnInit {
   @ViewChild('container', {read: ElementRef}) container: ElementRef;
 
   constructor(private service: ProductGridService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.modal = 'grid-modal';
   }
 
@@ -27,6 +28,19 @@ export class ProductGridComponent implements OnInit {
   }
   public onLoad() {
     this.modal = '';
+  }
+  /*
+  @HostListener('window:scroll', ['$event'])onScroll(event) {
+    if (this.products && this.products.length > 0) {
+      const height = this.container.nativeElement.scrollHeight;
+      // console.log(`${height} : ${window.pageYOffset + 300}`);
+      if (height < (window.pageYOffset + 400)) {
+        this.router.navigate([`/explore/${this.brand}/${this.category}/${this.productsNumber += 3}`]);
+      }
+    }
+  }*/
+  public loadProducts() {
+    this.router.navigate([`/explore/${this.brand}/${this.category}/${this.productsNumber += 12}`]);
   }
   private getProducts(count: number, brand?: EBrand, category?: ECategory) {
     this.service.getProducts(count, brand, category).subscribe(products => {
