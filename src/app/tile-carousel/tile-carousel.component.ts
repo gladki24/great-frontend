@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {ISmallTile} from '../Interfaces/IDetails';
 
 @Component({
@@ -6,12 +6,16 @@ import {ISmallTile} from '../Interfaces/IDetails';
   templateUrl: './tile-carousel.component.html',
   styleUrls: ['./tile-carousel.component.scss']
 })
-export class TileCarouselComponent implements OnInit {
+export class TileCarouselComponent implements OnInit, OnChanges {
   @Input() tilesData: ISmallTile[];
   @Input() type: string;
+  public width: number;
   constructor() {
   }
   ngOnInit() {
+  }
+  ngOnChanges() {
+    this.width = this.tilesData.length * 260;
   }
   public createUrl(id: number): string {
     let url: string;

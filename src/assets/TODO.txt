@@ -3,8 +3,12 @@
  - Zrób tagi
  - Dodaj wyszukiwarki
  - Serduszka
- - Karuzela powinna mieć dostosowaną długość
+ - Poprawa karuzeli na telefony
 
 Rzeczy które warto zrobić zawsze:
  - Refaktoryzuj
  - Refaktoryzuj
+
+
+Opcjonalnie:
+ - zbudować dla desktopów inne menu główne

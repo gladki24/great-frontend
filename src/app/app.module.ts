@@ -28,6 +28,7 @@ import { CollectionComponent } from './collection/collection.component';
 import {CollectionService} from './Services/collection.service';
 import { FilterComponent } from './filter/filter.component';
 import { TileScrollDirective } from './tile-carousel/tile-scroll.directive';
+import {TagService} from './Services/tag.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,9 @@ import { TileScrollDirective } from './tile-carousel/tile-scroll.directive';
     AuthService,
     UserService,
     CollectionService,
-    AuthGuard],
+    AuthGuard,
+    TagService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]
 })

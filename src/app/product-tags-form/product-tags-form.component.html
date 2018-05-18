@@ -1,3 +1,30 @@
 <p>
-  product-tags-form works!
+  Istnieje
 </p>
+
+<table>
+  <tr>
+    <th>
+      Tag
+    </th>
+    <th>
+      <i class="fas fa-thumbs-up"></i>
+    </th>
+  </tr>
+  <tr *ngFor="let tag of tags">
+    <td>
+      {{tag}}
+    </td>
+    <td>
+      <i class="fas fa-plus"></i>
+    </td>
+  </tr>
+  <tr *ngIf="user.getUserLogged()">
+    <td>
+      <input type="text" placeholder="Nazwa Tagu" #tag>
+    </td>
+    <td>
+      <button (click)="addTag(tag.value)">Dodaj</button>
+    </td>
+  </tr>
+</table>

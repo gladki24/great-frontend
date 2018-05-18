@@ -1,24 +1,32 @@
-import {Directive, ElementRef, HostBinding} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges} from '@angular/core';
 import {HostListener} from '@angular/core';
-import {DirectionState, RightScroll, LeftScroll, SuspendScroll} from './DirectionState';
+import {DirectionState, RightScroll, SuspendScroll} from './DirectionState';
 
 @Directive({
   selector: '[appTileScroll]'
 })
-export class TileScrollDirective {
+export class TileScrollDirective implements OnChanges {
+  @Input() width: number;
   public interval: number;
   public scrollPosition: number;
   public directionState: DirectionState;
+  public scrollLeft: number;
 
   constructor(public element: ElementRef) {
     this.directionState = new RightScroll();
     this.scrollPosition = 0;
+  }
+  ngOnChanges() {
     this.interval = setInterval(() => {
       this.scroll();
-    }, 10);
+    }, 1);
   }
+  @HostListener('touchmove')
   @HostListener('mouseover') onUserScroll(): void {
     this.directionState = new SuspendScroll();
+  }
+  @HostListener('scroll', ['event']) onScroll(): void {
+    this.scrollLeft = event.target.scrollLeft;
   }
   public scroll(): void {
     this.directionState.scroll(this);
