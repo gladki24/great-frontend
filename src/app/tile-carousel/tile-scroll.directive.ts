@@ -17,6 +17,7 @@ export class TileScrollDirective implements OnChanges {
     this.scrollPosition = 0;
   }
   ngOnChanges() {
+    clearInterval(this.interval);
     this.interval = setInterval(() => {
       this.scroll();
     }, 1);
@@ -25,8 +26,8 @@ export class TileScrollDirective implements OnChanges {
   @HostListener('mouseover') onUserScroll(): void {
     this.directionState = new SuspendScroll();
   }
-  @HostListener('scroll', ['event']) onScroll(): void {
-    this.scrollLeft = event.target.scrollLeft;
+  @HostListener('scroll', ['$event']) onScroll(): void {
+    this.scrollLeft = event.srcElement.scrollLeft;
   }
   public scroll(): void {
     this.directionState.scroll(this);

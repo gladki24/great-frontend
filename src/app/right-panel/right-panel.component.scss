@@ -80,14 +80,29 @@
       text-decoration: underline;
     }
   }
-  .add-form {
-    padding: 20px;
-  }
   select, button {
     font-family: Roboto;
     font-size: 18px;
   }
   select {
     margin: 20px 0 0 20px;
+  }
+}
+
+section {
+  min-width: 400px;
+}
+
+nav {
+  margin: 10px 0 10px 0;
+  ul {
+    display: flex;
+    li {
+      width: 33%;
+      button {
+        width: 100%;
+        overflow: hidden;
+      }
+    }
   }
 }

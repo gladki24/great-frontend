@@ -2,9 +2,9 @@
   <h1>Panel Użytkownika</h1>
   <nav>
     <ul>
-      <li><button (click)="showSection(1)">Dane</button></li>
-      <li><button (click)="showSection(2)">Kolekcje</button></li>
-      <li><button (click)="showSection(3)">Opcje</button></li>
+      <li><button (click)="showSection(1)" [class.active]="visibleSection == 1">Dane</button></li>
+      <li><button (click)="showSection(2)" [class.active]="visibleSection == 2">Kolekcje</button></li>
+      <li><button (click)="showSection(3)" [class.active]="visibleSection == 3">Opcje</button></li>
     </ul>
   </nav>
   <div>

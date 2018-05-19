@@ -1,8 +1,8 @@
 <div class="login">
   <nav>
     <ul>
-      <li><button (click)="showSection(1)">Rejestracja</button></li>
-      <li><button (click)="showSection(2)">Logowanie</button></li>
+      <li><button (click)="showSection(1)" [class.active]="visibleSection == 1">Rejestracja</button></li>
+      <li><button (click)="showSection(2)" [class.active]="visibleSection == 2">Logowanie</button></li>
     </ul>
   </nav>
   <div class="form-box" *ngIf="visibleSection == 1">

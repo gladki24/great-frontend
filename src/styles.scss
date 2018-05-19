@@ -61,6 +61,11 @@ input[type=button], input[type=submit], button {
   }
 }
 
+.active {
+  background-color: darken(#f25f5c, 7);
+  color: white;
+}
+
 input[type=text], input[type=email], input[type=password] {
 }
 
@@ -103,4 +108,17 @@ footer {
   ul {
     text-align: center;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F1F1F1;
+}
+
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
 }

@@ -3,7 +3,6 @@
  - Zrób tagi
  - Dodaj wyszukiwarki
  - Serduszka
- - Poprawa karuzeli na telefony
 
 Rzeczy które warto zrobić zawsze:
  - Refaktoryzuj

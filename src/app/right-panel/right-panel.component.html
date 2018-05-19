@@ -8,24 +8,45 @@
       <figure class="product-brand">
         <a alt="brand" href="{{productDetail.link | hostname}}"><img [src]="productDetail.logoSource" [alt]="productDetail.brandName"></a>
       </figure>
-      <ul>
-        <li class="product-price slash">Cena: {{productDetail.price | zlotyCurrency}}</li>
-        <li class="product-category slash">Kategoria: {{productDetail.categoryName}}</li>
-        <li class="product-link slash">
-          <a class="product-link" [href]="productDetail.link" target="_blank">Link do produktu</a>
-        </li>
-      </ul>
-      <div class="add-form" *ngIf="this.collections">
+      <nav>
+        <ul>
+          <li>
+            <button (click)="showSection(1)" [class.active]="visibleSection == 1">
+              Informacje
+            </button>
+          </li>
+          <li *ngIf="user.getUserLogged()">
+            <button (click)="showSection(2)" [class.active]="visibleSection == 2">
+              Kolekcje
+            </button>
+          </li>
+          <li>
+            <button (click)="showSection(3)" [class.active]="visibleSection == 3">
+              Tagi
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <section class="add-form" *ngIf="visibleSection == 1">
+        <ul>
+          <li class="product-price slash">Cena: {{productDetail.price | zlotyCurrency}}</li>
+          <li class="product-category slash">Kategoria: {{productDetail.categoryName}}</li>
+          <li class="product-link slash">
+            <a class="product-link" [href]="productDetail.link" target="_blank">Link do produktu</a>
+          </li>
+        </ul>
+      </section>
+      <section class="add-form" *ngIf="this.collections && visibleSection == 2">
         <h2>Dodaj produkt do kolekcji: </h2>
         <select #select>
           <option *ngFor="let collection of collections" [value]="collection.id">{{collection.title}}</option>
         </select>
         <button (click)="addToCollection(select.value)">Dodaj do kolekcji</button>
-      </div>
-      <div class="add-form">
+      </section>
+      <section class="add-form" *ngIf="visibleSection == 3">
         <h2>Tagi: </h2>
         <app-product-tags-form productId="productId"></app-product-tags-form>
-      </div>
+      </section>
     </div>
   </article>
 </aside>

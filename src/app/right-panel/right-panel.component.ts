@@ -19,10 +19,12 @@ export class RightPanelComponent implements OnInit, IPanel {
   public productDetail: IDetails;
   private productId: string;
   public collections: ICollectionName[];
+  public visibleSection: number;
   constructor(private showDetailsService: ShowDetailsService,
               private user: UserService,
               private collectionService: CollectionService,
               private dialog: DialogService) {
+    this.visibleSection = 1;
     this.showDetailsService.id$.subscribe(id => {
       this.productId = id;
       this.showDetailsService.getDetails(this.productId).subscribe(product => {
@@ -60,6 +62,9 @@ export class RightPanelComponent implements OnInit, IPanel {
     }, err => {
       this.dialog.showDialog('Produkt już jest w tej kolekcji', EDialogType.Warning);
     });
+  }
+  public showSection(section: number): void {
+    this.visibleSection = section;
   }
   private getCollections(): void {
     this.user.getUserCollections(this.user.getUserId()).subscribe(collections => {

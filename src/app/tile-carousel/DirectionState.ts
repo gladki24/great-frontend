@@ -24,7 +24,7 @@ export class SuspendScroll implements DirectionState {
     setTimeout(() => {
       context.interval = setInterval(() => {
         context.scroll();
-      }, 10);
+      }, 1);
       context.scrollPosition = context.scrollLeft;
       context.directionState = new RightScroll();
     }, 5000);
