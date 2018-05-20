@@ -1,0 +1,22 @@
+table, tr, th, td {
+  font-size: 22px;
+  box-sizing: border-box;
+  margin: 0 auto 0 auto;
+}
+
+table {
+  min-width: 350px;
+}
+
+i {
+  font-size: 26px;
+}
+
+tr, td {
+  border-bottom: 1px solid #f25f5c;
+  padding: 5px;
+}
+
+.center {
+  text-align: center;
+}

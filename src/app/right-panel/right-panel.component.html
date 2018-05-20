@@ -27,7 +27,7 @@
           </li>
         </ul>
       </nav>
-      <section class="add-form" *ngIf="visibleSection == 1">
+      <section *ngIf="visibleSection == 1">
         <ul>
           <li class="product-price slash">Cena: {{productDetail.price | zlotyCurrency}}</li>
           <li class="product-category slash">Kategoria: {{productDetail.categoryName}}</li>
@@ -36,16 +36,16 @@
           </li>
         </ul>
       </section>
-      <section class="add-form" *ngIf="this.collections && visibleSection == 2">
+      <section *ngIf="this.collections && visibleSection == 2">
         <h2>Dodaj produkt do kolekcji: </h2>
         <select #select>
           <option *ngFor="let collection of collections" [value]="collection.id">{{collection.title}}</option>
         </select>
         <button (click)="addToCollection(select.value)">Dodaj do kolekcji</button>
       </section>
-      <section class="add-form" *ngIf="visibleSection == 3">
+      <section *ngIf="visibleSection == 3">
         <h2>Tagi: </h2>
-        <app-product-tags-form productId="productId"></app-product-tags-form>
+        <app-product-tags-form [productId]="productId"></app-product-tags-form>
       </section>
     </div>
   </article>

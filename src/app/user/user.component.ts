@@ -3,7 +3,7 @@ import {UserService} from '../Services/user.service';
 import {User} from './user';
 import { ICollectionName } from '../Interfaces/ICollectionName';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
 
@@ -21,8 +21,8 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
               private router: Router,
-              private dialog: DialogService) {
-    this.visibleSection = 1;
+              private dialog: DialogService,
+              private route: ActivatedRoute) {
     this.userForm = formBuilder.group({
       'name': [null],
       'surname': [null],
@@ -31,8 +31,14 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getRouteParams();
     this.getUserDetails();
     this.getUsersCollections();
+  }
+  private getRouteParams() {
+    this.route.params.subscribe(params => {
+      this.visibleSection = params['section'];
+    });
   }
   public showSection(number: number) {
     this.visibleSection = number;

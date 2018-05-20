@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPanel, EStatePanel } from '../Interfaces/IPanel';
+import {UserService} from '../Services/user.service';
 
 @Component({
   selector: 'app-left-panel',
@@ -9,8 +10,8 @@ import { IPanel, EStatePanel } from '../Interfaces/IPanel';
 export class LeftPanelComponent implements OnInit, IPanel {
   public style: string;
   public state: EStatePanel;
-  constructor() { }
-
+  constructor(public user: UserService) {
+  }
   ngOnInit() {
     this.style = 'left-panel hidden-left-panel';
     this.state = EStatePanel.close;

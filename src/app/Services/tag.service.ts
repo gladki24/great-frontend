@@ -18,4 +18,12 @@ export class TagService {
       tag: tag
     });
   }
+  public vote(product: string, userId: string, tag: string): Observable<boolean> {
+    const url = `http://${window.location.hostname}:3000/tag/vote`;
+    return this.http.post<boolean>(url, {
+      user: userId,
+      product: product,
+      tag: tag
+    });
+  }
 }

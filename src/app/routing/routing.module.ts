@@ -12,9 +12,10 @@ const Routes: Routes = [
   { path: '', component: MainPageComponent},
   { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
   { path: 'explore/:brand/:category/:number/:query', component: ProductGridComponent},
+  { path: 'search/tag/:tag', component: ProductGridComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'user', canActivate: [AuthGuard], component: UserComponent},
-  { path: 'user/settings', canActivate: [AuthGuard], component: UserComponent},
+  { path: 'user/:section', canActivate: [AuthGuard], component: UserComponent},
+  { path: 'user', canActivate: [AuthGuard], redirectTo: 'user/1'},
   { path: 'collection/:id', component: CollectionComponent},
   { path:  '**', redirectTo: 'explore/2'}
 ];
