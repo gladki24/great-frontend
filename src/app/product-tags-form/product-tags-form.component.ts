@@ -3,6 +3,7 @@ import {TagService} from '../Services/tag.service';
 import {UserService} from '../Services/user.service';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-product-tags-form',
@@ -12,9 +13,20 @@ import {EDialogType} from '../Enums/EDialogType';
 export class ProductTagsFormComponent implements OnInit, OnChanges {
   @Input() productId: string;
   public tags: Array<string>;
+  public tagForm: FormGroup;
   constructor(private service: TagService,
               private user: UserService,
-              private dialog: DialogService) { }
+              private dialog: DialogService,
+              private formBuilder: FormBuilder) {
+    this.tagForm = formBuilder.group({
+      'tag': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+        Validators.pattern(/^[a-z0-9_-]{4,15}$/)
+      ])]
+    });
+  }
 
   ngOnInit() {
     this.getTags();

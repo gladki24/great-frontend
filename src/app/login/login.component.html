@@ -7,16 +7,20 @@
   </nav>
   <div class="form-box" *ngIf="visibleSection == 1">
     <h1><i class="fas fa-user-plus"></i>Rejestracja</h1>
-      <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value)">
+      <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value.tag)">
 
         <div class="input-group">
-          <input type="text" formControlName="nick" id="nick" placeholder="Nazwa użytkownika: ">
+          <input type="text"
+                 formControlName="nick"
+                 id="nick"
+                 placeholder="Nazwa użytkownika: ">
           <div class="error" *ngIf="registerForm.controls['nick'].invalid && registerForm.controls['nick'].touched">
             Nazwa musi:
             <ul>
               <li>Być nie krótsza niż 4 znaki</li>
               <li>Być nie dłuższa niż 15 znaków</li>
               <li>Nie może zawierać polskich znaków</li>
+              <li>Składać się z małych liter</li>
             </ul>
           </div>
         </div>

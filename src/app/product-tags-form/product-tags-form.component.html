@@ -1,31 +1,33 @@
-<table>
-  <tr>
-    <th>
-      Tag
-    </th>
-    <th colspan="2">
-      <i class="fas fa-thumbs-up"></i>
-    </th>
-  </tr>
-  <tr *ngIf="user.getUserLogged()">
-    <td>
-      <input type="text" placeholder="Nazwa Tagu" #tag>
-    </td>
-    <td colspan="2">
-      <button (click)="addTag(tag.value)">Dodaj</button>
-    </td>
-  </tr>
-  <tr *ngFor="let tag of tags">
-    <td>
-      {{tag.id}}
-    </td>
-    <td class="center">
-      {{tag.number}}
-    </td>
-    <td class="center" *ngIf="user.getUserLogged()">
-      <button (click)="vote(tag.id)">
-        <i class="fas fa-plus"></i>
-      </button>
-    </td>
-  </tr>
-</table>
+<form [formGroup]="tagForm" (ngSubmit)="addTag(tagForm.value.tag)">
+  <table>
+    <tr>
+      <th>
+        Tag
+      </th>
+      <th colspan="2">
+        <i class="fas fa-thumbs-up"></i>
+      </th>
+    </tr>
+    <tr *ngIf="user.getUserLogged()">
+      <td>
+        <input type="text" placeholder="Nazwa Tagu" formControlName="tag">
+      </td>
+      <td colspan="2">
+        <input type="submit" value="Dodaj" [disabled]="tagForm.controls['tag'].invalid">
+      </td>
+    </tr>
+    <tr *ngFor="let tag of tags">
+      <td>
+        {{tag.id}}
+      </td>
+      <td class="center">
+        {{tag.number}}
+      </td>
+      <td class="center" *ngIf="user.getUserLogged()">
+        <button (click)="vote(tag.id)">
+          <i class="fas fa-plus"></i>
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>

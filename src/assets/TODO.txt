@@ -1,6 +1,5 @@
 ﻿TO-DO:
  - Odświeżanie ma nie wylogowywać użytkownika
- - Wyrażenia regularne dla formularzy
  - Dodaj wyszukiwarki
  - Serduszka
 

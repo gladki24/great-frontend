@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
       'nick': [null, Validators.compose([
         Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(15)])],
+        Validators.maxLength(15),
+        Validators.pattern(/^[a-z0-9_-]{4,15}$/)
+      ])],
       'email': [null, Validators.compose([
         Validators.required,
         Validators.email,
