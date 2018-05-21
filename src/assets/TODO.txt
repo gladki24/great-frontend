@@ -1,5 +1,6 @@
 ﻿TO-DO:
  - Odświeżanie ma nie wylogowywać użytkownika
+    - Ogarnij JWT
  - Dodaj wyszukiwarki
  - Serduszka
 

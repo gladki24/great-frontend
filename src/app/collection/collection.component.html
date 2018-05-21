@@ -4,7 +4,7 @@
     <tr>
       <th>Nazwa</th>
       <th>Marka</th>
-      <th>Zdjęcie</th>
+      <th class="img">Zdjęcie</th>
       <th></th>
     </tr>
     <tr *ngFor="let product of products">
@@ -12,7 +12,7 @@
         <a>{{product.title | lowercase}}</a>
       </td>
       <td>{{product.brandName}}</td>
-      <td>
+      <td class="img">
         <img [alt]="product.title" [src]="product.imgSource">
       </td>
       <td *ngIf="userAuth">

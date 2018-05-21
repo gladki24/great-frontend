@@ -4,7 +4,7 @@
   <div [class]="modal" title="Załaduj następne produkty">
     <div class="grid-modal-animation"></div>
   </div>
-  <button (click)="loadProducts()" *ngIf="!(products.length < productsNumber)">
+  <button (click)="loadMoreProducts()" *ngIf="!(products.length < productsNumber)">
     <div class="next-products">
       <i class="fas fa-arrow-down"></i>
     </div>

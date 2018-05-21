@@ -5,7 +5,6 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-
   constructor(private http: HttpClient) { }
   public signUp(data: IRegister): Observable<boolean> {
     const url = `http://${window.location.hostname}:3000/user/add`;

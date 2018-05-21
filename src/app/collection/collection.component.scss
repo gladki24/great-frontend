@@ -24,5 +24,29 @@ td {
 }
 
 th {
-  font-size: 26px;
+  font-size: 22px;
+}
+
+@media only screen and (max-width: 600px) {
+  .collection {
+    padding: 20px 10px 40px 10px;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  img {
+    width: 100px;
+    object-fit: scale-down;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  img {
+    display: none;
+  }
+  .img {
+    display: none;
+  }
 }

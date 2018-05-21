@@ -11,8 +11,7 @@ import {CollectionComponent} from '../collection/collection.component';
 const Routes: Routes = [
   { path: '', component: MainPageComponent},
   { path: 'explore/:brand/:category/:number', component: ProductGridComponent },
-  { path: 'explore/:brand/:category/:number/:query', component: ProductGridComponent},
-  { path: 'search/tag/:tag', component: ProductGridComponent},
+  { path: 'search/:type/:query/:number', component: ProductGridComponent},
   { path: 'login', component: LoginComponent },
   { path: 'user/:section', canActivate: [AuthGuard], component: UserComponent},
   { path: 'user', canActivate: [AuthGuard], redirectTo: 'user/1'},
@@ -23,7 +22,7 @@ const Routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(Routes)
+    RouterModule.forRoot(Routes),
   ],
   exports: [
     RouterModule
