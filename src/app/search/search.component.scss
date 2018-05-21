@@ -1,0 +1,31 @@
+nav {
+  width: 100%;
+  padding: 20px 10px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+select, input {
+  font-size: 20px;
+  padding: 5px;
+  border: 0;
+  border-bottom: 1px solid #247baf;
+}
+
+select {
+  padding: 4px;
+}
+
+input[type=text] {
+  width: 60%;
+}
+
+input[type=submit]:hover {
+  background-color: #247baf;
+}
