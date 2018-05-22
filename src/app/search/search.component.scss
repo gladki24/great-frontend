@@ -8,7 +8,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 select, input {
@@ -28,4 +28,13 @@ input[type=text] {
 
 input[type=submit]:hover {
   background-color: #247baf;
+}
+
+@media only screen and (max-height: 600px) {
+  nav {
+    padding: 20px 5px;
+  }
+  input[type=text] {
+    width: 50%;
+  }
 }

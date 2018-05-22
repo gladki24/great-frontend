@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ESearchType } from '../Enums/ESearchType';
 import {Router} from '@angular/router';
 
 @Component({

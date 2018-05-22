@@ -51,8 +51,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   public showSection(number: number): void {
     this.visibleSection = number;
   }

@@ -6,7 +6,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
-import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-user',

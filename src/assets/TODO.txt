@@ -1,7 +1,4 @@
 ﻿TO-DO:
- - Odświeżanie ma nie wylogowywać użytkownika
-    - Ogarnij JWT
- - Dodaj wyszukiwarki
  - Serduszka
 
 Rzeczy które warto zrobić zawsze:
