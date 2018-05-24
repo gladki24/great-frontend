@@ -1,13 +1,13 @@
-<div class="login">
+<section class="login">
   <nav>
     <ul>
       <li><button (click)="showSection(1)" [class.active]="visibleSection == 1">Rejestracja</button></li>
       <li><button (click)="showSection(2)" [class.active]="visibleSection == 2">Logowanie</button></li>
     </ul>
   </nav>
-  <div class="form-box" *ngIf="visibleSection == 1">
+  <section class="form-box" *ngIf="visibleSection == 1">
     <h1><i class="fas fa-user-plus"></i>Rejestracja</h1>
-      <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value.tag)">
+      <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm.value)">
 
         <div class="input-group">
           <input type="text"
@@ -64,9 +64,9 @@
           <input type="submit" value="Zarejestruj" [disabled]="!registerForm.valid">
         </div>
       </form>
-  </div>
+  </section>
 
-  <div class="form-box" *ngIf="visibleSection == 2">
+  <section class="form-box" *ngIf="visibleSection == 2">
     <h1><i class="fas fa-sign-in-alt"></i>Logowanie</h1>
     <div class="form">
       <form [formGroup]="loginForm" (ngSubmit)="signIn(loginForm.value)">
@@ -81,6 +81,13 @@
           <input type="submit" value="Zaloguj" [disabled]="!loginForm.valid">
         </div>
       </form>
+      <div class="info">
+        <h2>Dane do konta testowego</h2>
+        <ul>
+          <li>e-mail: test@test.com</li>
+          <li>hasło: test123</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
+</section>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { IPanel, EStatePanel } from '../Interfaces/IPanel';
 import {ShowDetailsService} from '../Services/show-details.service';
 import {IDetails} from '../Interfaces/IDetails';
@@ -7,19 +7,22 @@ import {ICollectionName} from '../Interfaces/ICollectionName';
 import {CollectionService} from '../Services/collection.service';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
+import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-right-panel',
   templateUrl: './right-panel.component.html',
   styleUrls: ['./right-panel.component.scss']
 })
-export class RightPanelComponent implements OnInit, IPanel {
+export class RightPanelComponent implements OnInit, OnDestroy, IPanel {
   public state: EStatePanel;
   public style: string;
   public productDetail: IDetails;
   private productId: string;
   public collections: ICollectionName[];
   public visibleSection: number;
+  private destroyComponent = new Subject<void>();
   constructor(private showDetailsService: ShowDetailsService,
               private user: UserService,
               private collectionService: CollectionService,
@@ -36,6 +39,10 @@ export class RightPanelComponent implements OnInit, IPanel {
   ngOnInit() {
     this.style = 'right-panel hidden-right-panel';
     this.state = EStatePanel.close;
+  }
+  ngOnDestroy() {
+    this.destroyComponent.next();
+    this.destroyComponent.complete();
   }
   public togglePanel(): void {
     if (this.state) {
@@ -56,7 +63,7 @@ export class RightPanelComponent implements OnInit, IPanel {
     }
   }
   public addToCollection(collectionId: number) {
-    this.collectionService.addItemToCollection(this.productId, collectionId).subscribe(res => {
+    this.collectionService.addItemToCollection(this.productId, collectionId).takeUntil(this.destroyComponent).subscribe(res => {
       this.dialog.showDialog('Dodano!', EDialogType.Information);
       console.log(res);
     }, err => {
@@ -67,7 +74,7 @@ export class RightPanelComponent implements OnInit, IPanel {
     this.visibleSection = section;
   }
   private getCollections(): void {
-    this.user.getUserCollections(this.user.getUserId()).subscribe(collections => {
+    this.user.getUserCollections(this.user.getUserId()).takeUntil(this.destroyComponent).subscribe(collections => {
       this.collections = collections;
     });
   }

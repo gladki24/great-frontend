@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DialogService} from '../Services/dialog.service';
 import {AuthService} from '../Services/auth.service';
@@ -6,16 +6,19 @@ import {ILogin, IRegister} from '../Interfaces/ILogin_IRegsiter';
 import {Router} from '@angular/router';
 import {EDialogType} from '../Enums/EDialogType';
 import {UserService} from '../Services/user.service';
+import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   public registerForm: FormGroup;
   public loginForm: FormGroup;
   public visibleSection: number;
+  private destroyComponent = new Subject<void>();
   constructor(
     private formBuilder: FormBuilder,
     private dialog: DialogService,
@@ -52,11 +55,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {}
+  ngOnDestroy() {
+    this.destroyComponent.next();
+    this.destroyComponent.complete();
+  }
   public showSection(number: number): void {
     this.visibleSection = number;
   }
   public signUp(form: IRegister): void {
-    this.auth.signUp(form).subscribe(res => {
+    console.log(form);
+    this.auth.signUp(form).takeUntil(this.destroyComponent).subscribe(res => {
       this.dialog.showDialog('Użytkownik dodany!', EDialogType.Information);
       this.signIn(form);
     }, err => {
@@ -64,7 +72,7 @@ export class LoginComponent implements OnInit {
     });
   }
   public signIn(form: ILogin): void {
-    this.auth.signIn(form).subscribe(res => {
+    this.auth.signIn(form).takeUntil(this.destroyComponent).subscribe(res => {
       if (res !== null) {
         this.user.setUserLogged(res.id);
         this.dialog.showDialog('Zalogowano', EDialogType.Information);

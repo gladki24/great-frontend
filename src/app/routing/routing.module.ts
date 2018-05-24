@@ -16,7 +16,7 @@ const Routes: Routes = [
   { path: 'user/:section', canActivate: [AuthGuard], component: UserComponent},
   { path: 'user', canActivate: [AuthGuard], redirectTo: 'user/1'},
   { path: 'collection/:id', component: CollectionComponent},
-  { path:  '**', redirectTo: 'explore/2'}
+  { path:  '**', redirectTo: ''}
 ];
 
 @NgModule({

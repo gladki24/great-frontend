@@ -3,6 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {IDetails} from '../Interfaces/IDetails';
+import {Config} from '../config';
 
 @Injectable()
 export class ShowDetailsService {
@@ -15,7 +16,7 @@ export class ShowDetailsService {
     this.id.next(id);
   }
   getDetails(id: string): Observable<IDetails[]> {
-    const url = `http://${window.location.hostname}:3000/detail/${id}`;
+    const url = `${Config.backendHostname}/detail/${id}`;
     return this.http.get<IDetails[]>(url);
   }
 }

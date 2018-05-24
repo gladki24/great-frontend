@@ -20,7 +20,7 @@ export class DialogComponent implements OnInit {
       }
       setTimeout(() => {
         this.hideDialog();
-      }, 2000);
+      }, 4000);
     });
     this.service.style$.subscribe(style => {
       this.style = style;

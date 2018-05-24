@@ -79,7 +79,14 @@
     <section class="settings" *ngIf="visibleSection == 3">
       <h2>Opcje: </h2>
       <input type="button" class="button" value="Wyloguj" (click)="logOut()">
-      <input type="button" class="button" value="Usuń konto" (click)="deleteUser()">
+      <input type="button"
+             class="button"
+             value="Usuń konto"
+             (click)="deleteUser()"
+             [disabled]="userDetails.nick === 'test'">
+      <div class="info" *ngIf="userDetails.nick === 'test'">
+        Konto testowe posiada wyłączoną możliwość usunięcia konta
+      </div>
     </section>
   </div>
 </div>

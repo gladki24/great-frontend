@@ -6,7 +6,7 @@ import {DirectionState, RightScroll, SuspendScroll} from './DirectionState';
   selector: '[appTileScroll]'
 })
 export class TileScrollDirective implements OnChanges {
-  @Input() width: number;
+  @Input() width;
   public interval: number;
   public scrollPosition: number;
   public directionState: DirectionState;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {UserService} from '../Services/user.service';
 import {User} from './user';
 import { ICollectionName } from '../Interfaces/ICollectionName';
@@ -6,18 +6,21 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
+import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   public userDetails: User;
   public collections: ICollectionName[];
   public userForm: FormGroup;
   public newCollectionName: string;
   public visibleSection: number;
+  private destroyComponent = new Subject<void>();
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
               private router: Router,
@@ -35,8 +38,12 @@ export class UserComponent implements OnInit {
     this.getUserDetails();
     this.getUsersCollections();
   }
+  ngOnDestroy() {
+    this.destroyComponent.next();
+    this.destroyComponent.complete();
+  }
   private getRouteParams() {
-    this.route.params.subscribe(params => {
+    this.route.params.takeUntil(this.destroyComponent).subscribe(params => {
       this.visibleSection = params['section'];
     });
   }
@@ -44,7 +51,7 @@ export class UserComponent implements OnInit {
     this.visibleSection = number;
   }
   private getUserDetails(): void {
-    this.userService.getUserDetails().subscribe(res => {
+    this.userService.getUserDetails().takeUntil(this.destroyComponent).subscribe(res => {
       this.userDetails = res;
     });
   }
@@ -54,7 +61,7 @@ export class UserComponent implements OnInit {
     });
   }
   public changeUserDetails(form: any, id: string): void {
-    this.userService.saveUserDetails(form, id).subscribe(res => {
+    this.userService.saveUserDetails(form, id).takeUntil(this.destroyComponent).subscribe(res => {
       if (res) {
         this.dialog.showDialog('Zapisano!', EDialogType.Information);
       }
@@ -69,7 +76,7 @@ export class UserComponent implements OnInit {
     if (!name) {
       name = 'Brak nazwy';
     }
-    this.userService.addUserCollection(name).subscribe(res => {
+    this.userService.addUserCollection(name).takeUntil(this.destroyComponent).subscribe(res => {
       this.getUsersCollections();
       this.dialog.showDialog('Dodano', EDialogType.Information);
     }, err => {
@@ -77,7 +84,7 @@ export class UserComponent implements OnInit {
     });
   }
   public deleteCollection(id: number): void {
-    this.userService.deleteUserCollection(id).subscribe(res => {
+    this.userService.deleteUserCollection(id).takeUntil(this.destroyComponent).subscribe(res => {
       if (res) {
         this.dialog.showDialog('Usunięto kolekcje', EDialogType.Warning);
         this.getUsersCollections();
@@ -87,7 +94,7 @@ export class UserComponent implements OnInit {
     });
   }
   public deleteUser(): void {
-    this.userService.delete(this.userService.getUserId()).subscribe(res => {
+    this.userService.delete(this.userService.getUserId()).takeUntil(this.destroyComponent).subscribe(res => {
       if (res) {
         this.dialog.showDialog('Użytkownik usunięty', EDialogType.Warning);
         this.userService.setUserLogout();
