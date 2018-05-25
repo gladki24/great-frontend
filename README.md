@@ -1,27 +1,94 @@
-# GreatFrontend
+﻿<h1><a href="http://80.211.220.192:8080/">Great Frontend</a>👕</h1>
+<a href="http://80.211.220.192:8080">
+	<img src="http://80.211.220.192:8080/assets/logo.svg"
+	alt="Logo" width="350">
+</a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+<h2 id="nav">Navigation 👉</h2>
+<ol>
+	<li>
+		<a href="#what">What is Great?</a>
+	</li>
+	<li>
+		<a href="#make">What makes Great?</a>
+	</li>
+	<li>
+		<a href="#tech">Technicals</a>
+	</li>
+	<li>
+		<a href="#docs">Documentation</a>
+	</li>
+	<li>
+		<a href="#about">About me</a>
+	</li>
+</ol>
 
-## Development server
+<h2 id="what">What is Great? 🔧</h2>
+<p><a href="http://80.211.220.192:8080/"><b>Great</b></a> is a small application, which will help you create a collections of your favorite clothes and find new ones. </p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<h3>Collections 📃</h3>
+<p><b>Collection</b> are your new way to keep all your favorite clothes in one place.</p>
 
-## Code scaffolding
+<h3>Tags #️⃣</h3>
+<p><b>Tags</b> can help you find what you're looking for by simple phrases</p>
+<h3>Brands 🏭</h3>
+<p>
+<b>Great</b> collects products from six companies like: 
+<ul>
+	<li>Carry</li>
+	<li>Zara</li>
+	<li>C&A</li>
+	<li>Reserved</li>
+	<li>4F</li>
+	<li>H&M</li>
+	<li>Cropp</li>
+</ul>
+</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+<h2 id="make">What makes Great?🔧</h2>
+<p>
+<ol>
+	<li>
+		<a href="https://github.com/gladki24/great-frontend">great-frontend</a>
+	</li>
+	<li>
+		<a href="https://github.com/gladki24/great-backend">great-backend</a>
+	</li>
+	<li>
+		<a href="https://github.com/gladki24/great-data-scripts">great-data-scripts</a>
+	</li>
+</ol>
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+<h2 id="tech">Technicals 🔬</h2>
+<h3>Frontend</h3>
+<p>
+	I created <b>Great</b> to improve my skills in frontend technologies.
+	I used technologies like: 
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript (ES6)</li>
+		<li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+		<li><a href="http://angular.io/">Angular</a></li>
+		<li><a href="https://sass-lang.com/">Sass</a></li>
+		<li><a href="https://rxjs-dev.firebaseapp.com/">RxJS</a></li>
+	</ul>
+</p>
 
-## Running unit tests
+<h2 id="about">About me 👦</h2>
+<p>I'm an IT technician who would like to become Frontend Developer. I'am intrested in frontend technologies like JavaScript and Angular.</p>
+<ul>
+	<li>
+		<a href="https://github.com/gladki24">GitHub</a>
+	</li>
+	<li>
+		<a href="https://www.facebook.com/seweryngla">Facebook</a>
+	</li>
+	<li>
+	<a href="https://www.linkedin.com/in/seweryn-g%C5%82adysz-b00979160/">Linkedin</a>
+	</li>
+</ul>
+<a href="mailto:seweryngla@hotmail.com">Write to me</a> ✉️ 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
