@@ -1,0 +1,10 @@
+﻿TO-DO:
+ - Serduszka
+
+Rzeczy które warto zrobić zawsze:
+ - Refaktoryzuj
+ - Refaktoryzuj
+
+
+Opcjonalnie:
+ - zbudować dla desktopów inne menu główne
