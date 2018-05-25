@@ -10,7 +10,7 @@ import {Config} from '../config';
 export class ProductGridService {
   constructor(private http: HttpClient) { }
   getProducts(count: number, brand?: EBrand, category?: ECategory): Observable<IProductTile[]> {
-    const url = `${Config.backendHostname}/${count}/${brand}/${category}`;
+    const url = `${Config.backendHostname}/product/${count}/${brand}/${category}`;
     return this.http.get<IProductTile[]>(url);
   }
   searchProducts(count: number, type: ESearchType, query: string): Observable<IProductTile[]> {
