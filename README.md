@@ -1,6 +1,6 @@
-﻿<h1><a href="http://80.211.220.192:8080/">Great Frontend</a>👕</h1>
-<a href="http://80.211.220.192:8080">
-	<img src="http://80.211.220.192:8080/assets/logo.svg"
+﻿<h1><a href="http://80.211.220.192:80/">Great Frontend</a>👕</h1>
+<a href="http://80.211.220.192:80">
+	<img src="http://80.211.220.192:80/assets/logo.svg"
 	alt="Logo" width="350">
 </a>
 
@@ -24,7 +24,7 @@
 </ol>
 
 <h2 id="what">What is Great? 🔧</h2>
-<p><a href="http://80.211.220.192:8080/"><b>Great</b></a> is a small application, which will help you create a collections of your favorite clothes and find new ones. </p>
+<p><a href="http://80.211.220.192:80/"><b>Great</b></a> is a small application, which will help you create a collections of your favorite clothes and find new ones. </p>
 
 <h3>Collections 📃</h3>
 <p><b>Collection</b> are your new way to keep all your favorite clothes in one place.</p>
