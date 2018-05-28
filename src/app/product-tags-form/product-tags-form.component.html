@@ -30,4 +30,12 @@
       </td>
     </tr>
   </table>
+  <div class="info left" *ngIf="user.getUserLogged()">
+    <h3>Wymogi dotyczące tagów: </h3>
+    <ul>
+      <li>Brak polskich znaków</li>
+      <li>Małe litery</li>
+      <li>Długość od 3 do 20 znaków</li>
+    </ul>
+  </div>
 </form>

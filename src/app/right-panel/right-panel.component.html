@@ -28,6 +28,7 @@
         </ul>
       </nav>
       <section *ngIf="visibleSection == 1">
+        <h2>Informacje</h2>
         <ul>
           <li class="product-price slash">Cena: {{productDetail.price | zlotyCurrency}}</li>
           <li class="product-category slash">Kategoria: {{productDetail.categoryName}}</li>
@@ -45,6 +46,9 @@
       </section>
       <section *ngIf="visibleSection == 3">
         <h2>Tagi: </h2>
+        <div *ngIf="!user.getUserLogged()" class="info">
+          Aby móc dodawać tagi musisz się zalogować.
+        </div>
         <app-product-tags-form [productId]="productId"></app-product-tags-form>
       </section>
     </div>

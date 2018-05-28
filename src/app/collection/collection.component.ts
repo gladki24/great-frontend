@@ -8,6 +8,8 @@ import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
+import {PanelMediatorService} from '../Services/panel-mediator.service';
+import {EPanel} from '../Interfaces/IPanel';
 
 @Component({
   selector: 'app-collection',
@@ -24,7 +26,8 @@ export class CollectionComponent implements OnInit, OnDestroy {
               private service: CollectionService,
               private showDetailService: ShowDetailsService,
               private userService: UserService,
-              private dialog: DialogService) { }
+              private dialog: DialogService,
+              private panelMediator: PanelMediatorService) { }
 
   ngOnInit() {
     this.createView();
@@ -35,6 +38,7 @@ export class CollectionComponent implements OnInit, OnDestroy {
   }
   public showDetails(id: string): void {
     this.showDetailService.onShowDetails(id);
+    this.panelMediator.openRightPanel();
   }
   public removeProduct(productId: string): void {
     this.service.removeProduct(this.id, productId).takeUntil(this.destroyComponent).subscribe(res => {

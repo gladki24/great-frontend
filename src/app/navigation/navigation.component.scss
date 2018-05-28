@@ -57,6 +57,10 @@ img {
     background-color: #ffe066;
     color: white;
   }
+  &:disabled {
+    color: #aeaeae;
+    background-color: white;
+  }
 }
 
 @media only screen and (max-width: 600px) {

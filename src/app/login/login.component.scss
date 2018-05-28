@@ -35,9 +35,12 @@ nav {
 
 .error {
   background-color: #ff625f;
-  color: #c3261f;
+  color: #a60d00;
   margin: 20px;
   padding: 10px;
+  a {
+    color: white;
+  }
 }
 
 h1 {

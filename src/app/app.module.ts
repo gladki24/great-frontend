@@ -41,6 +41,7 @@ import {AuthGuard} from './Guards/auth.guard';
 
 // Directives
 import { TileScrollDirective } from './tile-carousel/tile-scroll.directive';
+import {PanelMediatorService} from './Services/panel-mediator.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { TileScrollDirective } from './tile-carousel/tile-scroll.directive';
     UserService,
     CollectionService,
     AuthGuard,
-    TagService
+    TagService,
+    PanelMediatorService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ProductTileComponent]

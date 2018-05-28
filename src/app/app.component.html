@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container" (window:scroll)="$event.stopPropagation()">
-  <app-navigation (onLeftPanelClick)="panelMediator($event)" (onRightPanelClick)="panelMediator($event)"></app-navigation>
+  <app-navigation></app-navigation>
   <app-left-panel></app-left-panel>
   <app-right-panel></app-right-panel>
   <router-outlet></router-outlet>

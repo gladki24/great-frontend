@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { EPanel } from '../Interfaces/IPanel';
+import {Component, OnInit} from '@angular/core';
+import {EPanel, EStatePanel} from '../Interfaces/IPanel';
 import {ShowDetailsService} from '../Services/show-details.service';
+import {PanelMediatorService} from '../Services/panel-mediator.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,24 +9,46 @@ import {ShowDetailsService} from '../Services/show-details.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  @Output() onLeftPanelClick = new EventEmitter<EPanel>();
-  @Output() onRightPanelClick = new EventEmitter<EPanel>();
   public navigationStyle = 'navigation';
-  public btnDisabled = true;
-  constructor(private showDetailsService: ShowDetailsService) {
-    showDetailsService.id$.subscribe(() => {
-      this.toggleRightPanel();
-      this.btnDisabled = false;
-    });
+  public btnDisabled: boolean;
+  public rightPanelIcon = 'fas fa-info-circle';
+  constructor(private showDetailsService: ShowDetailsService,
+              public panelMediator: PanelMediatorService) {
+    if (!localStorage.getItem('product_id')) {
+      this.btnDisabled = true;
+    }
   }
   ngOnInit() {
+    this.showDetailsService.id$.subscribe(id => {
+      this.btnDisabled = false;
+    });
+    this.panelMediator.rightPanelState$.subscribe(state => {
+      switch (state) {
+        case EStatePanel.close: {
+          this.rightPanelIcon = 'fas fa-info-circle';
+          break;
+        }
+        case EStatePanel.open: {
+          this.rightPanelIcon = 'fas fa-times';
+          break;
+        }
+        default: {
+          this.rightPanelIcon = 'fas fa-info-circle';
+          break;
+        }
+      }
+    });
   }
 
   toggleLeftPanel() {
-    this.onLeftPanelClick.emit(EPanel.left);
+    this.panelMediator.managePanels(EPanel.left);
   }
   toggleRightPanel() {
-    this.onRightPanelClick.emit(EPanel.right);
+    this.panelMediator.managePanels(EPanel.right);
+  }
+  closePanels() {
+    this.panelMediator.closeLeftPanel();
+    this.panelMediator.closeRightPanel();
   }
   toggleShadow() {
     if (window.scrollY === 0) {

@@ -8,6 +8,8 @@ import {DialogService} from '../Services/dialog.service';
 import {EDialogType} from '../Enums/EDialogType';
 import 'rxjs/add/operator/takeUntil';
 import {Subject} from 'rxjs/Subject';
+import {PanelMediatorService} from '../Services/panel-mediator.service';
+import {EPanel} from '../Interfaces/IPanel';
 
 @Component({
   selector: 'app-product-tile',
@@ -23,7 +25,8 @@ export class ProductTileComponent implements OnInit, OnDestroy {
   constructor(private showDetailService: ShowDetailsService,
               private collection: CollectionService,
               public user: UserService,
-              private dialog: DialogService) {
+              private dialog: DialogService,
+              private panelMediator: PanelMediatorService) {
     this.navState = new NavHiddenState();
     this.cssClass = 'tile-nav-index tile-nav-hide tile-nav';
   }
@@ -46,6 +49,7 @@ export class ProductTileComponent implements OnInit, OnDestroy {
   }
   showDetails(): void {
     this.showDetailService.onShowDetails(this.product.id);
+    this.panelMediator.managePanels(EPanel.right);
   }
   saveItem(): void {
     this.collection.saveItem(this.product.id).takeUntil(this.componentDestroy).subscribe(res => {
